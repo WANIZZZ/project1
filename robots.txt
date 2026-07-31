@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://pixelcraftstudio-2cd.pages.dev/sitemap.xml
