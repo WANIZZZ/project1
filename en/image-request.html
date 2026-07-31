@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>Image Request - PixelCraft Studio</title>
+  <meta name="description" content="Request a pixel icon or image you'd like to see added to PixelCraft Studio, and browse requests other visitors have posted." />
+  <meta name="keywords" content="image request, pixel icon request, board, icon suggestions" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/en/image-request.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/image-request.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/image-request.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/image-request.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PixelCraft Studio" />
+  <meta property="og:title" content="Image Request - PixelCraft Studio" />
+  <meta property="og:description" content="Request a pixel icon or image you'd like to see added." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/en/image-request.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>Image Request</h1>
+      <p>
+        Have a pixel icon or image you'd like to see on PixelCraft Studio? Post a request
+        below. After review, it may be added to the
+        <a href="pixel-gallery.html">Pixel Image Picks</a> page. Every visitor can see the
+        requests posted here.
+      </p>
+    </section>
+
+    <section class="doc-card">
+      <h2>Post a request</h2>
+      <form id="image-request-form" class="request-form">
+        <div class="field">
+          <label for="request-title">Title</label>
+          <input id="request-title" name="title" type="text" maxlength="60" required />
+        </div>
+        <div class="field">
+          <label for="request-body">Details</label>
+          <textarea id="request-body" name="body" maxlength="500" rows="4" required></textarea>
+        </div>
+        <div class="field">
+          <label for="request-author">Name (optional)</label>
+          <input id="request-author" name="author" type="text" maxlength="30" placeholder="Anonymous" />
+        </div>
+        <div class="field-honeypot" aria-hidden="true">
+          <label for="request-website">Website</label>
+          <input id="request-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn btn-primary" type="submit">Submit request</button>
+        <p id="image-request-status" class="tool-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="content-section">
+      <h2>Posted requests</h2>
+      <div id="image-request-list" class="request-list"></div>
+      <p id="image-request-empty" class="pixel-gallery-empty" hidden></p>
+      <nav id="image-request-pagination" class="pixel-pagination" aria-label="Pagination"></nav>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/pixel-art.js"></script>
+  <script src="../js/background-characters.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/image-request.js"></script>
+</body>
+</html>

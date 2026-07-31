@@ -420,6 +420,79 @@ main {
   font-size: 0.82rem;
 }
 
+/* ---- image request board -------------------------------------------------- */
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.request-form input[type="text"],
+.request-form textarea {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-panel-border);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.request-form textarea {
+  resize: vertical;
+}
+
+.field-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.request-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.request-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.request-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.request-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.request-card-meta {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+.request-card-body {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
 /* ---- game-tool intro cards ------------------------------------------------ */
 
 .tool-intro-grid {

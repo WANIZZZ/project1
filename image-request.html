@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>이미지 요청 - 픽셀크래프트 스튜디오</title>
+  <meta name="description" content="픽셀크래프트 스튜디오에 추가되었으면 하는 픽셀 아이콘이나 이미지를 자유롭게 요청해보세요. 다른 방문자들의 요청도 함께 확인할 수 있습니다." />
+  <meta name="keywords" content="이미지 요청, 픽셀 아이콘 요청, 게시판, 아이콘 신청" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/image-request.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/image-request.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/image-request.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/image-request.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="이미지 요청 - 픽셀크래프트 스튜디오" />
+  <meta property="og:description" content="추가되었으면 하는 픽셀 아이콘이나 이미지를 자유롭게 요청해보세요." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/image-request.html" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>이미지 요청</h1>
+      <p>
+        픽셀크래프트 스튜디오에 추가되었으면 하는 픽셀 아이콘이나 이미지가 있다면 자유롭게
+        요청해주세요. 검토 후 <a href="pixel-gallery.html">픽셀 이미지 추천</a> 페이지에
+        추가될 수 있습니다. 등록된 요청은 아래에서 모든 방문자가 함께 볼 수 있습니다.
+      </p>
+    </section>
+
+    <section class="doc-card">
+      <h2>요청 남기기</h2>
+      <form id="image-request-form" class="request-form">
+        <div class="field">
+          <label for="request-title">제목</label>
+          <input id="request-title" name="title" type="text" maxlength="60" required />
+        </div>
+        <div class="field">
+          <label for="request-body">요청 내용</label>
+          <textarea id="request-body" name="body" maxlength="500" rows="4" required></textarea>
+        </div>
+        <div class="field">
+          <label for="request-author">이름 (선택)</label>
+          <input id="request-author" name="author" type="text" maxlength="30" placeholder="익명" />
+        </div>
+        <div class="field-honeypot" aria-hidden="true">
+          <label for="request-website">웹사이트</label>
+          <input id="request-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn btn-primary" type="submit">요청 등록</button>
+        <p id="image-request-status" class="tool-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="content-section">
+      <h2>등록된 요청</h2>
+      <div id="image-request-list" class="request-list"></div>
+      <p id="image-request-empty" class="pixel-gallery-empty" hidden></p>
+      <nav id="image-request-pagination" class="pixel-pagination" aria-label="페이지 이동"></nav>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/image-request.js"></script>
+</body>
+</html>
