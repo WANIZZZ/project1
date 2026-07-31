@@ -34,11 +34,18 @@
 
   function buildCard(post) {
     const author = post.author || (IS_EN ? "Anonymous" : "익명");
+    const resolvedBadge = post.resolved
+      ? `<span class="request-resolved-badge" title="${IS_EN ? "Image created" : "이미지 생성 완료"}">&#10003;</span>`
+      : "";
     const card = document.createElement("article");
     card.className = "request-card";
     card.innerHTML = `
       <div class="request-card-header">
-        <h3>${escapeHtml(post.title)}</h3>
+        <div class="request-card-title-row">
+          ${typeof post.seq === "number" ? `<span class="request-seq">#${post.seq}</span>` : ""}
+          <h3>${escapeHtml(post.title)}</h3>
+          ${resolvedBadge}
+        </div>
         <span class="request-card-meta">${escapeHtml(author)} · ${formatDate(post.createdAt)}</span>
       </div>
       <p class="request-card-body">${escapeHtml(post.body)}</p>

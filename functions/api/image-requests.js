@@ -2,16 +2,17 @@
    Cloudflare Pages Function backing the image request board.
    Route: /api/image-requests (file-based routing from this path).
    Requires a KV namespace bound as IMAGE_REQUESTS in the Pages project
-   settings (Settings > Functions > KV namespace bindings).
+   settings (Settings > Functions > KV namespace bindings), and an
+   ADMIN_KEY environment variable (Settings > Environment variables) to
+   authorize the resolve/unresolve action used by admin.html.
 
-   Storage model: the entire post list + write counters live in a single KV
-   key as one JSON object (posts newest first). This site's traffic is small
-   enough that this is simpler and safer than paging through KV's own list()
-   API, at the cost of a rare lost update if two people submit at the exact
-   same moment - an acceptable tradeoff for a low-volume request board.
+   Storage model: the entire post list + counters live in a single KV key as
+   one JSON object (posts newest first). This site's traffic is small enough
+   that this is simpler and safer than paging through KV's own list() API,
+   at the cost of a rare lost update if two people write at the exact same
+   moment - an acceptable tradeoff for a low-volume request board.
 
-   Daily usage caps (see README note below for why reads/writes are handled
-   differently):
+   Daily usage caps (reads/writes are handled differently on purpose):
    - Writes (POST) are capped at DAILY_WRITE_LIMIT, tracked exactly inside
      the same KV read-modify-write a post already needs, so enforcing the
      cap costs zero extra KV operations.
@@ -26,6 +27,10 @@
      total requests actually reach DAILY_READ_LIMIT. That tradeoff is fine at
      this site's scale - it's a safety net against a single runaway loop or
      bot, not a hard global SLA.
+
+   Each post gets a permanent sequential "seq" number assigned at creation
+   (from a running nextSeq counter), so board numbering (1, 2, 3, ...) never
+   shifts even after older posts are trimmed once MAX_STORED is exceeded.
    ========================================================================== */
 
 const KV_KEY = "image-requests";
@@ -57,19 +62,20 @@ function withinReadLimit() {
 }
 
 function normalizeStore(raw) {
-  if (!raw) return { posts: [], writeCounts: {} };
+  if (!raw) return { posts: [], writeCounts: {}, nextSeq: 1 };
   try {
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed)) {
       // Back-compat with the earlier plain-array storage format.
-      return { posts: parsed, writeCounts: {} };
+      return { posts: parsed, writeCounts: {}, nextSeq: parsed.length + 1 };
     }
     return {
       posts: Array.isArray(parsed.posts) ? parsed.posts : [],
       writeCounts: parsed.writeCounts && typeof parsed.writeCounts === "object" ? parsed.writeCounts : {},
+      nextSeq: typeof parsed.nextSeq === "number" ? parsed.nextSeq : 1,
     };
   } catch {
-    return { posts: [], writeCounts: {} };
+    return { posts: [], writeCounts: {}, nextSeq: 1 };
   }
 }
 
@@ -83,6 +89,11 @@ function pruneWriteCounts(writeCounts, today) {
     });
   kept[today] = kept[today] || 0;
   return kept;
+}
+
+function isAuthorizedAdmin(context) {
+  const adminKey = context.env.ADMIN_KEY;
+  return Boolean(adminKey) && context.request.headers.get("x-admin-key") === adminKey;
 }
 
 export async function onRequestGet(context) {
@@ -138,17 +149,60 @@ export async function onRequestPost(context) {
 
   const post = {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    seq: store.nextSeq,
     title,
     body,
     author: author || null,
     createdAt: new Date().toISOString(),
+    resolved: false,
   };
 
   store.posts.unshift(post);
   if (store.posts.length > MAX_STORED) store.posts.length = MAX_STORED;
   writeCounts[today] += 1;
 
-  await kv.put(KV_KEY, JSON.stringify({ posts: store.posts, writeCounts }));
+  await kv.put(
+    KV_KEY,
+    JSON.stringify({ posts: store.posts, writeCounts, nextSeq: store.nextSeq + 1 })
+  );
+
+  return Response.json({ ok: true, post });
+}
+
+// Admin-only: mark a request as resolved (image created) or revert it.
+// Requires the X-Admin-Key header to match the ADMIN_KEY env var - used by
+// admin.html, never exposed to regular visitors of the board.
+export async function onRequestPatch(context) {
+  if (!isAuthorizedAdmin(context)) {
+    return new Response("Unauthorized", { status: 403 });
+  }
+
+  const kv = context.env.IMAGE_REQUESTS;
+
+  let payload;
+  try {
+    payload = await context.request.json();
+  } catch {
+    return new Response("Invalid JSON body", { status: 400 });
+  }
+
+  const id = payload.id;
+  if (!id) {
+    return new Response("Missing id", { status: 400 });
+  }
+
+  const store = normalizeStore(await kv.get(KV_KEY));
+  const post = store.posts.find((p) => p.id === id);
+  if (!post) {
+    return new Response("Not found", { status: 404 });
+  }
+
+  post.resolved = Boolean(payload.resolved);
+
+  await kv.put(
+    KV_KEY,
+    JSON.stringify({ posts: store.posts, writeCounts: store.writeCounts, nextSeq: store.nextSeq })
+  );
 
   return Response.json({ ok: true, post });
 }

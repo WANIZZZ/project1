@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>관리자 - 이미지 요청 관리</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main>
+    <section class="doc-card">
+      <h2>관리자 키</h2>
+      <p>
+        Cloudflare Pages 환경 변수(ADMIN_KEY)에 설정한 값을 입력하세요. 이 브라우저에만
+        저장되며, 서버로는 요청을 처리할 때 헤더로만 전송됩니다.
+      </p>
+      <div class="field">
+        <label for="admin-key-input">관리자 키</label>
+        <input id="admin-key-input" type="password" autocomplete="off" />
+      </div>
+      <button id="admin-key-save" class="btn btn-primary" type="button">저장</button>
+      <p id="admin-key-status" class="tool-status" role="status"></p>
+    </section>
+
+    <section class="content-section">
+      <h2>이미지 요청 목록</h2>
+      <div id="admin-request-list" class="request-list"></div>
+      <p id="admin-request-empty" class="pixel-gallery-empty" hidden></p>
+      <nav id="admin-request-pagination" class="pixel-pagination" aria-label="페이지 이동"></nav>
+    </section>
+  </main>
+
+  <script src="js/admin-image-requests.js"></script>
+</body>
+</html>
