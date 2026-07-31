@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://example.com/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/index.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/index.html" />
+  </url>
+  <url>
+    <loc>https://example.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/about.html" />
+  </url>
+  <url>
+    <loc>https://example.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/privacy.html" />
+  </url>
+  <url>
+    <loc>https://example.com/pixel-gallery.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/pixel-gallery.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/pixel-gallery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/pixel-gallery.html" />
+  </url>
+  <url>
+    <loc>https://example.com/game-tools.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/game-tools.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/game-tools.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/game-tools.html" />
+  </url>
+  <url>
+    <loc>https://example.com/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/index.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/index.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/index.html" />
+  </url>
+  <url>
+    <loc>https://example.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/about.html" />
+  </url>
+  <url>
+    <loc>https://example.com/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/privacy.html" />
+  </url>
+  <url>
+    <loc>https://example.com/en/pixel-gallery.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/pixel-gallery.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/pixel-gallery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/pixel-gallery.html" />
+  </url>
+  <url>
+    <loc>https://example.com/en/game-tools.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://example.com/game-tools.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://example.com/en/game-tools.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/game-tools.html" />
+  </url>
+</urlset>

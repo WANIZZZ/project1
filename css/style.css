@@ -1,0 +1,629 @@
+/* ==========================================================================
+   PixelCraft Studio - shared stylesheet
+   Used by every page (ko root pages + /en pages). Keep selectors generic so
+   new tool pages can reuse them without extra CSS.
+   ========================================================================== */
+
+:root {
+  --color-bg: #171423;
+  --color-bg-soft: #201c33;
+  --color-panel: #ffffff;
+  --color-panel-border: #e6e1f5;
+  --color-text: #24202f;
+  --color-text-muted: #6b6580;
+  --color-heading: #171423;
+  --color-primary: #7c5cff;
+  --color-primary-dark: #6142e0;
+  --color-accent: #33d6b0;
+  --color-header-bg: rgba(23, 20, 35, 0.92);
+  --color-link: #ffffff;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow-card: 0 20px 50px rgba(23, 16, 60, 0.25);
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--color-text);
+  background: radial-gradient(circle at 20% 0%, #2c2450 0%, #171423 55%, #100e1c 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  color: var(--color-heading);
+  line-height: 1.3;
+}
+
+a {
+  color: inherit;
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+/* ---- background decoration layer ------------------------------------- */
+
+#bg-characters {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-char {
+  position: absolute;
+  opacity: 0.16;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+  animation: bg-float 7s ease-in-out infinite;
+}
+
+.bg-char svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-char.pos-tl { top: 6%; left: 4%; width: 110px; animation-delay: 0s; }
+.bg-char.pos-tr { top: 10%; right: 5%; width: 90px; animation-delay: 1.2s; }
+.bg-char.pos-ml { top: 45%; left: 2%; width: 80px; animation-delay: 2.1s; }
+.bg-char.pos-mr { top: 55%; right: 3%; width: 100px; animation-delay: 0.6s; }
+.bg-char.pos-bl { bottom: 8%; left: 8%; width: 95px; animation-delay: 1.8s; }
+.bg-char.pos-br { bottom: 5%; right: 7%; width: 115px; animation-delay: 0.9s; }
+
+@keyframes bg-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@media (max-width: 900px) {
+  #bg-characters { display: none; }
+}
+
+/* ---- header ------------------------------------------------------------ */
+
+#site-header {
+  position: relative;
+  z-index: 2;
+  background: var(--color-header-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--color-link);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--color-link);
+  white-space: nowrap;
+}
+
+.brand-mark {
+  font-size: 1.2rem;
+}
+
+.site-nav {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.nav-link.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.lang-switch {
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.lang-switch:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: inline-flex; }
+  .site-nav {
+    display: none;
+    flex-basis: 100%;
+    order: 3;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .site-nav.open { display: flex; }
+}
+
+/* ---- layout -------------------------------------------------------------- */
+
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.page-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  color: #fff;
+}
+
+.page-intro h1 {
+  color: #fff;
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.page-intro p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(20px, 4vw, 40px);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.content-section {
+  max-width: 760px;
+  margin: 56px auto 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 4vw, 36px);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.content-section h2 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+
+.content-section h2:not(:first-child) {
+  margin-top: 32px;
+}
+
+.content-section p,
+.content-section li {
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.steps li strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+/* article-style pages (about / privacy) use a light card instead of dark section */
+.doc-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--color-panel);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.doc-card h2 {
+  font-size: 1.15rem;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.doc-card h2:first-of-type {
+  margin-top: 0;
+}
+
+.doc-card p,
+.doc-card li {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+/* ---- pixel icon gallery --------------------------------------------------- */
+
+.pixel-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pixel-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.pixel-card-art {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 10px;
+}
+
+.pixel-card-art svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pixel-card-name {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.pixel-card .btn {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.82rem;
+}
+
+/* ---- game-tool intro cards ------------------------------------------------ */
+
+.tool-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tool-intro-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+.tool-intro-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
+}
+
+.tool-intro-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tool-intro-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--color-heading);
+}
+
+.tool-intro-card p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+.tool-intro-card a.tool-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--color-primary-dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tool-intro-card a.tool-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- tool widget --------------------------------------------------------- */
+
+.drop-zone {
+  border: 2px dashed var(--color-panel-border);
+  border-radius: var(--radius-md);
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+  border-color: var(--color-primary);
+  background: #f6f3ff;
+}
+
+.drop-zone p {
+  margin: 6px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.drop-zone .drop-icon {
+  font-size: 2rem;
+}
+
+.file-input-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.tool-workspace {
+  margin-top: 24px;
+}
+
+.tool-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 18px;
+}
+
+.tool-meta strong {
+  color: var(--color-text);
+}
+
+.preview-frame {
+  background: repeating-conic-gradient(#f1eefc 0% 25%, #ffffff 0% 50%) 50% / 20px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin-bottom: 20px;
+  min-height: 160px;
+}
+
+.preview-frame canvas {
+  max-width: 100%;
+  max-height: 360px;
+  border-radius: 4px;
+}
+
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.field input[type="number"] {
+  width: 110px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--color-panel-border);
+  font-size: 0.95rem;
+}
+
+.field-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.scale-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.chip-btn {
+  border: 1px solid var(--color-panel-border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.chip-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: #f0edfa;
+  color: var(--color-primary-dark);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e5dffc;
+}
+
+.tool-status {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  min-height: 1.2em;
+}
+
+.tool-status.error {
+  color: #d1435b;
+}
+
+/* ---- footer --------------------------------------------------------------- */
+
+#site-footer {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 8, 20, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-brand {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 10px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+}

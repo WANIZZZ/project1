@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이미지 크기 변경 - 픽셀크래프트 스튜디오 | 무료 온라인 이미지 리사이저</title>
+  <meta name="description" content="설치 없이 브라우저에서 바로 이미지 크기를 변경하세요. 업로드한 이미지는 서버로 전송되지 않으며, 가로세로 비율을 유지하거나 원하는 크기로 자유롭게 조절한 뒤 즉시 다운로드할 수 있습니다." />
+  <meta name="keywords" content="이미지 크기 변경, 사진 리사이즈, 이미지 리사이저, 온라인 이미지 편집, 무료 이미지 도구" />
+  <link rel="canonical" href="https://example.com/index.html" />
+  <!-- TODO: Cloudflare Pages 커스텀 도메인이 정해지면 example.com을 실제 도메인으로 교체하세요. -->
+  <link rel="alternate" hreflang="ko" href="https://example.com/index.html" />
+  <link rel="alternate" hreflang="en" href="https://example.com/en/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://example.com/index.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="이미지 크기 변경 - 픽셀크래프트 스튜디오" />
+  <meta property="og:description" content="브라우저에서 바로 이미지 크기를 변경하는 무료 온라인 도구. 업로드 없이 안전하게, 즉시 다운로드." />
+  <meta property="og:url" content="https://example.com/index.html" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="이미지 크기 변경 - 픽셀크래프트 스튜디오" />
+  <meta name="twitter:description" content="브라우저에서 바로 이미지 크기를 변경하는 무료 온라인 도구." />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "픽셀크래프트 스튜디오 - 이미지 크기 변경",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (웹 브라우저)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "url": "https://example.com/index.html",
+    "description": "브라우저에서 바로 이미지 크기를 변경하는 무료 온라인 도구. 업로드한 이미지는 서버로 전송되지 않습니다."
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>이미지 크기, 브라우저에서 바로 바꾸세요</h1>
+      <p>
+        회원가입도, 프로그램 설치도 필요 없습니다. 이미지를 올리고 원하는 가로·세로 크기를 입력하면
+        바로 미리보기를 확인하고 다운로드할 수 있어요. 모든 처리는 여러분의 브라우저 안에서만 이루어지며
+        서버로 전송되지 않습니다.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="tool-heading">
+      <h2 id="tool-heading" class="sr-only" style="position:absolute;left:-9999px;">이미지 크기 변경 도구</h2>
+
+      <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="이미지 업로드">
+        <div class="drop-icon" aria-hidden="true">🖼️</div>
+        <p><strong>클릭</strong>하거나 이미지를 이곳에 <strong>끌어다 놓으세요</strong></p>
+        <p>JPG, PNG, WEBP, GIF 지원 · 최대 25MB</p>
+        <input id="file-input" class="file-input-hidden" type="file" accept="image/*" />
+      </div>
+
+      <div id="tool-workspace" class="tool-workspace" hidden>
+        <div id="tool-meta" class="tool-meta"></div>
+
+        <div class="preview-frame">
+          <canvas id="preview-canvas"></canvas>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="width-input">너비 (px)</label>
+            <input id="width-input" type="number" min="1" />
+          </div>
+          <div class="field">
+            <label for="height-input">높이 (px)</label>
+            <input id="height-input" type="number" min="1" />
+          </div>
+          <label class="field-check">
+            <input id="lock-aspect" type="checkbox" checked />
+            가로세로 비율 고정
+          </label>
+        </div>
+
+        <div class="scale-buttons">
+          <button class="chip-btn" type="button" data-scale="25">25%</button>
+          <button class="chip-btn" type="button" data-scale="50">50%</button>
+          <button class="chip-btn" type="button" data-scale="75">75%</button>
+          <button class="chip-btn" type="button" data-scale="100">100%</button>
+        </div>
+
+        <div class="action-row">
+          <button id="download-btn" class="btn btn-primary" type="button">다운로드</button>
+          <button id="reset-btn" class="btn btn-secondary" type="button">다른 이미지 업로드</button>
+        </div>
+
+        <p id="tool-status" class="tool-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>픽셀크래프트 스튜디오 소개</h2>
+      <p>
+        픽셀크래프트 스튜디오는 게임을 만드는 사람들을 위한 무료 서포트 사이트입니다. 복잡한
+        프로그램 설치 없이 브라우저만으로 <strong>이미지 크기 변경</strong>을 할 수 있고,
+        <a href="pixel-gallery.html">저작권 없는 픽셀 아이콘</a>을 바로 다운로드하거나
+        <a href="game-tools.html">실제로 많이 쓰이는 게임 제작 툴</a>도 확인할 수 있습니다.
+        앞으로도 게임 개발에 도움이 되는 기능과 자료를 계속 추가할 예정입니다.
+      </p>
+
+      <h2>이용 방법</h2>
+      <ul class="steps">
+        <li><strong>1. 업로드</strong>변경하고 싶은 이미지를 선택하거나 끌어다 놓으세요.</li>
+        <li><strong>2. 크기 설정</strong>원하는 너비·높이를 입력하거나 빠른 배율 버튼을 눌러보세요.</li>
+        <li><strong>3. 다운로드</strong>미리보기를 확인한 뒤 바로 이미지를 저장하세요.</li>
+      </ul>
+
+      <h2>왜 픽셀크래프트인가요?</h2>
+      <p>
+        업로드한 이미지는 서버로 전송되지 않고 브라우저 안에서만 처리되므로 개인적인 사진도 안심하고
+        사용할 수 있습니다. 별도 설치나 로그인 없이 즉시 사용할 수 있고, 원본 화질을 유지하면서
+        원하는 크기로 정확하게 조절할 수 있습니다.
+      </p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/tools/resize.js"></script>
+</body>
+</html>

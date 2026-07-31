@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resize Image - PixelCraft Studio | Free Online Image Resizer</title>
+  <meta name="description" content="Resize images instantly in your browser, no install needed. Your photos are never uploaded to a server — lock the aspect ratio or set a custom size, then download the result right away." />
+  <meta name="keywords" content="resize image, image resizer, online image editor, free image tool, photo resizer" />
+  <link rel="canonical" href="https://example.com/en/index.html" />
+  <!-- TODO: replace example.com with the real Cloudflare Pages custom domain once deployed. -->
+  <link rel="alternate" hreflang="ko" href="https://example.com/index.html" />
+  <link rel="alternate" hreflang="en" href="https://example.com/en/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://example.com/index.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PixelCraft Studio" />
+  <meta property="og:title" content="Resize Image - PixelCraft Studio" />
+  <meta property="og:description" content="A free online tool to resize images right in your browser. No uploads, instant download." />
+  <meta property="og:url" content="https://example.com/en/index.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ko_KR" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Resize Image - PixelCraft Studio" />
+  <meta name="twitter:description" content="A free online tool to resize images right in your browser." />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PixelCraft Studio - Resize Image",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://example.com/en/index.html",
+    "description": "A free online tool to resize images right in your browser. Images are never uploaded to a server."
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>Resize images right in your browser</h1>
+      <p>
+        No sign-up, no software to install. Upload an image, set the width and height you want, preview
+        the result instantly, and download it. Everything runs locally in your browser — your files are
+        never sent to a server.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="tool-heading">
+      <h2 id="tool-heading" class="sr-only" style="position:absolute;left:-9999px;">Image resize tool</h2>
+
+      <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Upload an image">
+        <div class="drop-icon" aria-hidden="true">🖼️</div>
+        <p>Click or <strong>drag and drop</strong> an image here</p>
+        <p>JPG, PNG, WEBP, GIF supported · up to 25MB</p>
+        <input id="file-input" class="file-input-hidden" type="file" accept="image/*" />
+      </div>
+
+      <div id="tool-workspace" class="tool-workspace" hidden>
+        <div id="tool-meta" class="tool-meta"></div>
+
+        <div class="preview-frame">
+          <canvas id="preview-canvas"></canvas>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="width-input">Width (px)</label>
+            <input id="width-input" type="number" min="1" />
+          </div>
+          <div class="field">
+            <label for="height-input">Height (px)</label>
+            <input id="height-input" type="number" min="1" />
+          </div>
+          <label class="field-check">
+            <input id="lock-aspect" type="checkbox" checked />
+            Lock aspect ratio
+          </label>
+        </div>
+
+        <div class="scale-buttons">
+          <button class="chip-btn" type="button" data-scale="25">25%</button>
+          <button class="chip-btn" type="button" data-scale="50">50%</button>
+          <button class="chip-btn" type="button" data-scale="75">75%</button>
+          <button class="chip-btn" type="button" data-scale="100">100%</button>
+        </div>
+
+        <div class="action-row">
+          <button id="download-btn" class="btn btn-primary" type="button">Download</button>
+          <button id="reset-btn" class="btn btn-secondary" type="button">Upload another image</button>
+        </div>
+
+        <p id="tool-status" class="tool-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About PixelCraft Studio</h2>
+      <p>
+        PixelCraft Studio is a free support site for people making games. Right in your browser, you
+        can <strong>resize images</strong>, grab <a href="pixel-gallery.html">royalty-free pixel icons</a>
+        to download, or check out a summary of <a href="game-tools.html">game-making tools</a> that
+        are actually widely used. We plan to keep adding more features and resources for game
+        development.
+      </p>
+
+      <h2>How it works</h2>
+      <ul class="steps">
+        <li><strong>1. Upload</strong>Select or drag and drop the image you want to resize.</li>
+        <li><strong>2. Set size</strong>Type a width/height or use a quick-scale button.</li>
+        <li><strong>3. Download</strong>Check the preview, then save the resized image.</li>
+      </ul>
+
+      <h2>Why PixelCraft Studio?</h2>
+      <p>
+        Since your image is processed locally in the browser and never uploaded to a server, you can
+        safely resize personal photos too. There's nothing to install and no account required, and you
+        keep full control over the output size while preserving image quality.
+      </p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/pixel-art.js"></script>
+  <script src="../js/background-characters.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/tools/resize.js"></script>
+</body>
+</html>
