@@ -50,6 +50,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/tetris.html" />
   </url>
   <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/breakout.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/breakout.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/breakout.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/breakout.html" />
+  </url>
+  <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/memory.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/memory.html" />
@@ -108,5 +114,11 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/memory.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/breakout.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/breakout.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/breakout.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/breakout.html" />
   </url>
 </urlset>

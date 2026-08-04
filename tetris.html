@@ -36,7 +36,7 @@
     </section>
 
     <div class="game-layout">
-      <div class="tetris-board-wrap">
+      <div class="canvas-board-wrap">
         <canvas id="tetris-board" width="240" height="480" aria-label="테트리스 보드"></canvas>
         <div id="tetris-overlay" class="game-overlay" hidden>
           <p id="tetris-overlay-text"></p>
@@ -67,7 +67,7 @@
 
         <button id="tetris-pause-btn" class="btn btn-secondary" type="button">일시정지</button>
 
-        <div class="tetris-touch-controls" aria-label="게임 조작 버튼">
+        <div class="game-touch-controls tetris-dpad" aria-label="게임 조작 버튼">
           <button data-action="rotate" type="button" aria-label="회전">⟳</button>
           <button data-action="left" type="button" aria-label="왼쪽">◀</button>
           <button data-action="down" type="button" aria-label="아래로">▼</button>

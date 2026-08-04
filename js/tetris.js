@@ -331,7 +331,7 @@
     }
   });
 
-  document.querySelectorAll(".tetris-touch-controls [data-action]").forEach((btn) => {
+  document.querySelectorAll(".tetris-dpad [data-action]").forEach((btn) => {
     btn.addEventListener("click", () => {
       switch (btn.getAttribute("data-action")) {
         case "left":
