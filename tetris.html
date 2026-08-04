@@ -35,33 +35,33 @@
       </p>
     </section>
 
-    <div class="tetris-layout">
+    <div class="game-layout">
       <div class="tetris-board-wrap">
         <canvas id="tetris-board" width="240" height="480" aria-label="테트리스 보드"></canvas>
-        <div id="tetris-overlay" class="tetris-overlay" hidden>
+        <div id="tetris-overlay" class="game-overlay" hidden>
           <p id="tetris-overlay-text"></p>
           <button id="tetris-restart-btn" class="btn btn-primary" type="button">다시 시작</button>
         </div>
       </div>
 
-      <div class="tetris-panel">
-        <div class="tetris-stat-row">
-          <div class="tetris-stat">
-            <span class="tetris-stat-label">점수</span>
-            <span id="tetris-score" class="tetris-stat-value">0</span>
+      <div class="game-panel">
+        <div class="game-stat-row">
+          <div class="game-stat">
+            <span class="game-stat-label">점수</span>
+            <span id="tetris-score" class="game-stat-value">0</span>
           </div>
-          <div class="tetris-stat">
-            <span class="tetris-stat-label">줄</span>
-            <span id="tetris-lines" class="tetris-stat-value">0</span>
+          <div class="game-stat">
+            <span class="game-stat-label">줄</span>
+            <span id="tetris-lines" class="game-stat-value">0</span>
           </div>
-          <div class="tetris-stat">
-            <span class="tetris-stat-label">레벨</span>
-            <span id="tetris-level" class="tetris-stat-value">1</span>
+          <div class="game-stat">
+            <span class="game-stat-label">레벨</span>
+            <span id="tetris-level" class="game-stat-value">1</span>
           </div>
         </div>
 
         <div class="tetris-next-wrap">
-          <span class="tetris-stat-label">다음 블록</span>
+          <span class="game-stat-label">다음 블록</span>
           <canvas id="tetris-next" width="96" height="96" aria-label="다음 블록 미리보기"></canvas>
         </div>
 
@@ -75,7 +75,7 @@
           <button data-action="drop" type="button" aria-label="즉시 낙하">⤓</button>
         </div>
 
-        <p class="tetris-controls-hint">← → 이동 · ↑ 회전 · ↓ 소프트 드롭 · Space 즉시 낙하 · P 일시정지</p>
+        <p class="game-controls-hint">← → 이동 · ↑ 회전 · ↓ 소프트 드롭 · Space 즉시 낙하 · P 일시정지</p>
       </div>
     </div>
   </main>

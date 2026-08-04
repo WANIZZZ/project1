@@ -807,15 +807,86 @@ main {
   color: var(--color-primary-dark);
 }
 
-/* ---- tetris ----------------------------------------------------------------- */
+/* ---- mini-game shared layout (used by tetris + memory pages) --------------- */
 
-.tetris-layout {
+.game-layout {
   display: flex;
   gap: 28px;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(16, 14, 28, 0.85);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.game-overlay[hidden] {
+  display: none;
+}
+
+.game-overlay p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.game-panel {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game-stat-row {
+  display: flex;
+  gap: 10px;
+}
+
+.game-stat {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  text-align: center;
+}
+
+.game-stat-label {
+  display: block;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 4px;
+}
+
+.game-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.game-panel .btn {
+  width: 100%;
+}
+
+.game-controls-hint {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 0;
+}
+
+/* ---- tetris ----------------------------------------------------------------- */
 
 .tetris-board-wrap {
   position: relative;
@@ -831,64 +902,6 @@ main {
   background: #100e1c;
 }
 
-.tetris-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  background: rgba(16, 14, 28, 0.85);
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
-
-.tetris-overlay[hidden] {
-  display: none;
-}
-
-.tetris-overlay p {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.tetris-panel {
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.tetris-stat-row {
-  display: flex;
-  gap: 10px;
-}
-
-.tetris-stat {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
-  padding: 10px;
-  text-align: center;
-}
-
-.tetris-stat-label {
-  display: block;
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 4px;
-}
-
-.tetris-stat-value {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
 .tetris-next-wrap {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -902,10 +915,6 @@ main {
   margin: 6px auto 0;
   background: #100e1c;
   border-radius: 6px;
-}
-
-.tetris-panel .btn {
-  width: 100%;
 }
 
 .tetris-touch-controls {
@@ -932,19 +941,71 @@ main {
   grid-column: span 3;
 }
 
-.tetris-controls-hint {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.5);
-  text-align: center;
-  margin: 0;
-}
-
 @media (max-width: 600px) {
   .tetris-touch-controls { display: grid; }
 }
 
 @media (min-width: 601px) {
   .tetris-touch-controls { display: none; }
+}
+
+/* ---- memory match ------------------------------------------------------------ */
+
+.memory-board-wrap {
+  position: relative;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 320px;
+}
+
+.memory-card {
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-card-mark {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.memory-card.is-revealed,
+.memory-card.is-matched {
+  background: var(--color-panel);
+  cursor: default;
+}
+
+.memory-card.is-matched {
+  opacity: 0.55;
+}
+
+.memory-card-art {
+  width: 62%;
+  height: 62%;
+}
+
+.memory-card-art svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 420px) {
+  .memory-grid {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 /* ---- footer --------------------------------------------------------------- */

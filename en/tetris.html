@@ -35,33 +35,33 @@
       </p>
     </section>
 
-    <div class="tetris-layout">
+    <div class="game-layout">
       <div class="tetris-board-wrap">
         <canvas id="tetris-board" width="240" height="480" aria-label="Tetris board"></canvas>
-        <div id="tetris-overlay" class="tetris-overlay" hidden>
+        <div id="tetris-overlay" class="game-overlay" hidden>
           <p id="tetris-overlay-text"></p>
           <button id="tetris-restart-btn" class="btn btn-primary" type="button">Restart</button>
         </div>
       </div>
 
-      <div class="tetris-panel">
-        <div class="tetris-stat-row">
-          <div class="tetris-stat">
-            <span class="tetris-stat-label">Score</span>
-            <span id="tetris-score" class="tetris-stat-value">0</span>
+      <div class="game-panel">
+        <div class="game-stat-row">
+          <div class="game-stat">
+            <span class="game-stat-label">Score</span>
+            <span id="tetris-score" class="game-stat-value">0</span>
           </div>
-          <div class="tetris-stat">
-            <span class="tetris-stat-label">Lines</span>
-            <span id="tetris-lines" class="tetris-stat-value">0</span>
+          <div class="game-stat">
+            <span class="game-stat-label">Lines</span>
+            <span id="tetris-lines" class="game-stat-value">0</span>
           </div>
-          <div class="tetris-stat">
-            <span class="tetris-stat-label">Level</span>
-            <span id="tetris-level" class="tetris-stat-value">1</span>
+          <div class="game-stat">
+            <span class="game-stat-label">Level</span>
+            <span id="tetris-level" class="game-stat-value">1</span>
           </div>
         </div>
 
         <div class="tetris-next-wrap">
-          <span class="tetris-stat-label">Next</span>
+          <span class="game-stat-label">Next</span>
           <canvas id="tetris-next" width="96" height="96" aria-label="Next piece preview"></canvas>
         </div>
 
@@ -75,7 +75,7 @@
           <button data-action="drop" type="button" aria-label="Hard drop">⤓</button>
         </div>
 
-        <p class="tetris-controls-hint">← → move · ↑ rotate · ↓ soft drop · Space hard drop · P pause</p>
+        <p class="game-controls-hint">← → move · ↑ rotate · ↓ soft drop · Space hard drop · P pause</p>
       </div>
     </div>
   </main>

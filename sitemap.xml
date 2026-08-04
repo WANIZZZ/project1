@@ -50,6 +50,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/tetris.html" />
   </url>
   <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/memory.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/memory.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
+  </url>
+  <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/en/index.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/index.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/index.html" />
@@ -96,5 +102,11 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/tetris.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/tetris.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/tetris.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/memory.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/memory.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/memory.html" />
   </url>
 </urlset>

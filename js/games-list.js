@@ -27,5 +27,24 @@
         "........",
       ],
     },
+    {
+      slug: "memory",
+      ko: "카드 짝 맞추기",
+      en: "Memory Match",
+      descKo: "같은 그림의 카드 두 장을 찾아 짝을 맞추는 메모리 게임입니다.",
+      descEn: "Flip cards two at a time to find every matching pair.",
+      page: "memory.html",
+      palette: { 1: "#7c5cff", 2: "#33d6b0", 3: "#ffd93d" },
+      grid: [
+        "11.11...",
+        "11.11...",
+        "........",
+        "22.33...",
+        "22.33...",
+        "........",
+        "........",
+        "........",
+      ],
+    },
   ];
 })();
