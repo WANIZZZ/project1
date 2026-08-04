@@ -22,6 +22,7 @@
     { file: "game-tools.html", ko: "게임 제작 툴 소개", en: "Game-Making Tools" },
     { file: "about.html", ko: "사이트 소개", en: "About" },
     { file: "image-request.html", ko: "이미지 요청", en: "Image Request" },
+    { file: "games.html", ko: "미니 게임", en: "Mini Games" },
   ];
 
   function label(item) {
