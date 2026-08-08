@@ -2,6 +2,7 @@
   "name": "project1",
   "private": true,
   "scripts": {
-    "test": "node scripts/check-js.js"
+    "test": "node scripts/check-js.js",
+    "dev": "wrangler pages dev ."
   }
 }

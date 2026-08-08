@@ -76,6 +76,13 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 테스트가 하나라도 실패하면 커밋/푸시를 진행하지 않고 실패 내용을 보고한다.
 
+사용자 메시지에 "로컬테스트"가 등장하면:
+
+1. 이미 백그라운드에서 실행 중인 `npm run dev`(wrangler pages dev) 프로세스가 있는지 확인한다. 없으면 백그라운드로 새로 실행한다.
+2. 로그에서 `Ready on http://127.0.0.1:PORT` 줄을 확인해 실제 포트를 얻는다 (포트가 점유 중이면 8788이 아닐 수 있음).
+3. 그 URL을 기본 브라우저로 연다 (Windows: `start <url>`).
+4. 이미 서버가 떠 있으면 재실행하지 않고 그 URL만 다시 연다.
+
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.

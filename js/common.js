@@ -9,7 +9,6 @@
 
   const LANG = document.documentElement.lang === "en" ? "en" : "ko";
   const IS_EN = LANG === "en";
-  const ROOT_PREFIX = IS_EN ? "../" : "";
 
   const SITE_NAME = IS_EN ? "PixelCraft Studio" : "픽셀크래프트 스튜디오";
 
@@ -29,25 +28,37 @@
     return IS_EN ? item.en : item.ko;
   }
 
-  function currentFileName() {
+  function currentSlug() {
     const last = location.pathname.split("/").pop();
-    return last && last.length ? last : "index.html";
+    const name = last && last.length ? last : "index.html";
+    return name.replace(/\.html$/, "");
+  }
+
+  // Cloudflare Pages 308-redirects "*.html" to the extension-less clean URL,
+  // so nav links must be built without ".html" to avoid an extra redirect hop.
+  // Page links stay relative to the current directory (root for ko, /en/ for en)
+  // so they resolve within the current language instead of crossing over.
+  function pageHref(file) {
+    const slug = file.replace(/\.html$/, "");
+    return slug === "index" ? "./" : slug;
   }
 
   function buildHeaderHtml() {
-    const current = currentFileName();
-    const otherLangHref = IS_EN ? "../" + current : "en/" + current;
+    const slug = currentSlug();
+    const otherLangHref = IS_EN
+      ? (slug === "index" ? "../" : "../" + slug)
+      : (slug === "index" ? "en/" : "en/" + slug);
 
     const navLinks = NAV_TOOLS.concat(NAV_EXTRA)
       .map((item) => {
-        const active = current === item.file ? " active" : "";
-        return `<a class="nav-link${active}" href="${ROOT_PREFIX}${item.file}">${label(item)}</a>`;
+        const active = slug === item.file.replace(/\.html$/, "") ? " active" : "";
+        return `<a class="nav-link${active}" href="${pageHref(item.file)}">${label(item)}</a>`;
       })
       .join("");
 
     return `
       <div class="header-inner">
-        <a class="brand" href="${ROOT_PREFIX}index.html">
+        <a class="brand" href="${pageHref("index.html")}">
           <span class="brand-mark" aria-hidden="true">\u{1F7E9}</span>
           <span class="brand-name">${SITE_NAME}</span>
         </a>
@@ -70,9 +81,9 @@
       <div class="footer-inner">
         <p class="footer-brand">${SITE_NAME}</p>
         <nav class="footer-nav" aria-label="${IS_EN ? "Site links" : "사이트 링크"}">
-          <a href="${ROOT_PREFIX}index.html">${IS_EN ? "Home" : "홈"}</a>
-          <a href="${ROOT_PREFIX}about.html">${IS_EN ? "About" : "사이트 소개"}</a>
-          <a href="${ROOT_PREFIX}privacy.html">${IS_EN ? "Privacy Policy" : "개인정보처리방침"}</a>
+          <a href="${pageHref("index.html")}">${IS_EN ? "Home" : "홈"}</a>
+          <a href="${pageHref("about.html")}">${IS_EN ? "About" : "사이트 소개"}</a>
+          <a href="${pageHref("privacy.html")}">${IS_EN ? "Privacy Policy" : "개인정보처리방침"}</a>
         </nav>
         <p class="footer-note">${note}</p>
       </div>
