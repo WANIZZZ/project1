@@ -50,6 +50,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
   </url>
   <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-color-palette.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-color-palette.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-color-palette.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-color-palette.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-walk-cycle.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-launch-checklist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
+  </url>
+  <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/game-tools.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/game-tools.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/game-tools.html" />
@@ -132,6 +150,24 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-free-assets.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-color-palette.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-color-palette.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-color-palette.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-color-palette.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-walk-cycle.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-walk-cycle.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-launch-checklist.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-launch-checklist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
   </url>
   <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/en/game-tools.html</loc>

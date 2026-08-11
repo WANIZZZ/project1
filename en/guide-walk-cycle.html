@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>2D Character Walk-Cycle Animation Basics | PixelCraft Studio</title>
+  <meta name="description" content="From frame counts to weight shift, foot planting, and common mistakes - the basics for animating your first 2D pixel art walk cycle." />
+  <meta name="keywords" content="walk cycle animation, pixel art animation, 2D character animation, game character animation, sprite animation" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-walk-cycle.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-walk-cycle.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-walk-cycle.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="PixelCraft Studio" />
+  <meta property="og:title" content="2D Character Walk-Cycle Animation Basics" />
+  <meta property="og:description" content="From frame counts to weight shift and foot planting - the basics for your first walk cycle." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/en/guide-walk-cycle.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "2D Character Walk-Cycle Animation Basics",
+    "description": "From frame counts to weight shift and foot planting - the basics for your first walk cycle.",
+    "inLanguage": "en",
+    "publisher": { "@type": "Organization", "name": "PixelCraft Studio" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>2D Character Walk-Cycle Animation Basics</h1>
+      <p>Guide &middot; <a href="guides.html">Back to guides</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        Once a static character is fully drawn, the next hurdle is animation.
+        The walk cycle in particular is the animation players see the most
+        often and for the longest time, so any awkwardness in it stands out
+        fast. This guide covers the fundamentals worth using as a baseline
+        for your first walk cycle.
+      </p>
+
+      <h2>How many frames should you start with</h2>
+      <p>
+        There's no single right answer, but the two most common choices in
+        practice are <strong>4 frames or 8 frames</strong>. A 4-frame cycle
+        is the simplest version, conveying just the rhythm of walking, and
+        shows up often in retro-styled games. An 8-frame cycle adds the
+        in-between poses where the legs cross, reading much smoother - at the
+        cost of twice the drawing work. If it's your first one, finish a
+        4-frame version first, then add in-between frames only where it
+        looks awkward.
+      </p>
+
+      <h2>The four key poses of a walk cycle</h2>
+      <ul class="steps">
+        <li><strong>1. Contact</strong>The moment a foot touches the ground.
+          Both legs are at their widest and the body is at its lowest.</li>
+        <li><strong>2. Down</strong>Full body weight settles onto the leading
+          leg, pressing the body slightly lower still.</li>
+        <li><strong>3. Passing</strong>The back leg swings past the front
+          leg. The body is at its highest and the legs nearly overlap.</li>
+        <li><strong>4. Up</strong>Just before the next foot lands, the body
+          rises slightly again.</li>
+      </ul>
+      <p>
+        A 4-frame walk uses just these four poses; an 8-frame walk inserts
+        one in-between pose between each of them.
+      </p>
+
+      <h2>The body needs to rise and fall to feel natural</h2>
+      <p>
+        The most common mistake is animating only the legs while keeping the
+        torso locked on a single horizontal line. In a real walk, the height
+        of the head and torso shifts slightly depending on how the legs are
+        supporting the body - highest at the passing pose, lowest at contact.
+        Moving the body just 1-2 pixels through that range makes the whole
+        animation feel far more alive.
+      </p>
+
+      <h2>Plant the feet so they don't slide</h2>
+      <p>
+        A foot in contact with the ground needs to stay in the exact same
+        position until it lifts again in a later frame. Even a slight
+        forward-backward drift while the foot is planted reads as "sliding" -
+        the character looks like it's skating rather than walking. Get in the
+        habit of stepping through frames one at a time and checking that the
+        planted foot's x-position hasn't moved.
+      </p>
+
+      <h2>Practical checklist</h2>
+      <ul>
+        <li>Finish a 4-frame version first, adding in-between frames only
+          where needed.</li>
+        <li>Shift the torso height 1-2 pixels between contact and passing.</li>
+        <li>Check that planted feet don't drift between frames.</li>
+        <li>Swing the arms opposite to the legs (right foot forward, left arm
+          forward).</li>
+      </ul>
+
+      <p>
+        If you haven't settled on a character size or palette yet, check the
+        <a href="guide-sprite-size.html">sprite size guide</a> and the
+        <a href="guide-color-palette.html">color palette guide</a> first.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/pixel-art.js"></script>
+  <script src="../js/background-characters.js"></script>
+  <script src="../js/common.js"></script>
+</body>
+</html>

@@ -36,5 +36,32 @@
       page: "guide-free-assets.html",
       icon: "bubble",
     },
+    {
+      slug: "guide-color-palette",
+      ko: "픽셀 아트 색상 팔레트 정하는 법",
+      en: "How to Choose a Pixel Art Color Palette",
+      descKo: "색상 개수를 왜 제한해야 하는지부터 무료 팔레트 사이트 활용법까지 실전 기준으로 정리했습니다.",
+      descEn: "Why limiting your color count matters, and how to use free palette sites — a practical starting point.",
+      page: "guide-color-palette.html",
+      icon: "prism",
+    },
+    {
+      slug: "guide-walk-cycle",
+      ko: "2D 캐릭터 걷기 애니메이션 기초",
+      en: "2D Character Walk-Cycle Animation Basics",
+      descKo: "몇 프레임으로 시작해야 하는지부터 무게중심과 발 접지까지, 첫 걷기 애니메이션을 위한 기초.",
+      descEn: "From frame counts to weight shift and foot planting — the basics for your first walk cycle.",
+      page: "guide-walk-cycle.html",
+      icon: "flow",
+    },
+    {
+      slug: "guide-launch-checklist",
+      ko: "인디 게임 첫 출시 체크리스트 (itch.io / Steam)",
+      en: "First Indie Game Launch Checklist (itch.io / Steam)",
+      descKo: "스토어 페이지 준비물부터 출시 직후 대응까지, 첫 게임을 출시하기 전에 확인할 것들.",
+      descEn: "From store page assets to what to watch right after launch — what to check before your first release.",
+      page: "guide-launch-checklist.html",
+      icon: "cube",
+    },
   ];
 })();
