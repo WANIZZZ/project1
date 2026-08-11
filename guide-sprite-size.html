@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>픽셀 아트 스프라이트 사이즈 정하는 법 | 픽셀크래프트 스튜디오</title>
+  <meta name="description" content="16x16부터 96x96까지, 캐릭터·타일맵·아이콘에 맞는 픽셀 아트 스프라이트 크기를 어떻게 정해야 하는지 실전 기준으로 정리했습니다. 정수 배율 스케일링과 타일 그리드 정렬 팁도 함께 다룹니다." />
+  <meta name="keywords" content="픽셀 아트 사이즈, 스프라이트 크기, 타일맵 크기, 픽셀 아트 튜토리얼, 도트 그래픽" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="픽셀 아트 스프라이트 사이즈 정하는 법" />
+  <meta property="og:description" content="캐릭터·타일맵·아이콘에 맞는 픽셀 아트 스프라이트 크기를 고르는 실전 기준." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "픽셀 아트 스프라이트 사이즈 정하는 법",
+    "description": "16x16부터 96x96까지, 캐릭터·타일맵·아이콘에 맞는 픽셀 아트 스프라이트 크기를 고르는 실전 기준.",
+    "inLanguage": "ko",
+    "publisher": { "@type": "Organization", "name": "픽셀크래프트 스튜디오" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>픽셀 아트 스프라이트 사이즈 정하는 법</h1>
+      <p>가이드 &middot; <a href="guides.html">가이드 목록으로</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        픽셀 아트를 처음 그릴 때 가장 먼저 막히는 지점은 붓 터치나 색감이 아니라
+        <strong>"이 캐릭터를 몇 픽셀로 그려야 하나"</strong>라는 질문입니다. 크기를 먼저
+        정하지 않고 그리기 시작하면 나중에 타일맵과 안 맞거나, 확대했을 때 흐릿해지거나,
+        애니메이션 프레임 수가 감당이 안 되는 경우가 많습니다. 이 가이드는 실제 게임 제작
+        기준으로 스프라이트 크기를 고르는 방법을 정리합니다.
+      </p>
+
+      <h2>스프라이트 크기가 왜 중요한가</h2>
+      <p>
+        스프라이트 크기는 단순히 "얼마나 크게 보이는가"의 문제가 아닙니다. 크기를 한 번
+        정하면 캐릭터의 디테일 표현 한계, 애니메이션에 들어가는 작업량, 타일맵과의 정렬
+        방식, 심지어 모바일에서의 터치 판정 영역까지 전부 그 크기를 기준으로 따라갑니다.
+        프로젝트 중간에 크기를 바꾸면 이미 그린 스프라이트를 전부 다시 그려야 하는 경우가
+        많기 때문에, 본격적으로 그리기 전에 크기부터 결정하는 것이 시간을 가장 많이
+        아끼는 방법입니다.
+      </p>
+
+      <h2>대표적인 스프라이트 크기와 쓰임새</h2>
+      <ul>
+        <li><strong>16x16px</strong> — 가장 작은 단위로, NES·게임보이 시절 캐릭터가 이
+          크기였습니다. 아주 단순한 실루엣 위주의 캐릭터나 UI 아이콘, 미니맵용 마커에
+          적합합니다. 디테일을 넣을 공간이 거의 없어서 색상 2~4개로 형태를 알아볼 수 있게
+          그리는 연습을 하기에도 좋습니다.</li>
+        <li><strong>32x32px</strong> — 인디 픽셀 아트 게임에서 가장 흔하게 쓰이는
+          크기입니다. 얼굴 표정, 옷의 실루엣, 무기 정도의 디테일을 표현할 수 있고 타일
+          기반 맵과도 잘 맞아떨어집니다. 픽셀크래프트 스튜디오의 <a href="pixel-gallery.html">픽셀
+          아이콘 갤러리</a>도 이 기준에 가까운 밀도로 제작했습니다.</li>
+        <li><strong>48x48px</strong> — 32x32보다 살짝 더 표현력이 필요한 주인공 캐릭터나
+          보스급 몬스터에 자주 쓰입니다. 걷기·공격 애니메이션에서 손발의 움직임을 더
+          자연스럽게 표현할 수 있습니다.</li>
+        <li><strong>64x64px 이상</strong> — 일러스트에 가까운 디테일이 필요한 보스,
+          컷신용 캐릭터, 카드 게임의 캐릭터 아트에 적합합니다. 다만 크기가 커질수록
+          그리는 시간과 애니메이션 작업량도 함께 늘어난다는 점을 감안해야 합니다.</li>
+      </ul>
+
+      <h2>해상도, 캔버스 크기, 실제 표시 크기는 다르다</h2>
+      <p>
+        픽셀 아트에서 가장 흔한 실수 중 하나는 32x32 캔버스에 그린 스프라이트를 화면에
+        그대로 32픽셀 크기로 출력하는 것입니다. 요즘 디스플레이 해상도에서는 이렇게 하면
+        캐릭터가 화면 한구석에서 아주 작게 보입니다. 대신 <strong>정수 배율(2배, 3배, 4배
+        등)</strong>로 확대해서 출력해야 합니다. 32x32 스프라이트를 4배로 키우면 128x128
+        픽셀로 표시되는 식입니다. 소수점 배율(1.5배 등)로 확대하면 픽셀 경계가 뭉개지고
+        의도한 픽셀 아트 특유의 각진 느낌이 사라지므로 반드시 피해야 합니다.
+      </p>
+      <p>
+        원본 스프라이트의 크기를 바꿔서 새 캔버스로 옮기거나 배율을 맞춰야 할 때는
+        브라우저에서 바로 처리할 수 있는 <a href="index.html">이미지 크기 변경 도구</a>로
+        원하는 배율 버튼을 눌러 빠르게 확인해볼 수 있습니다.
+      </p>
+
+      <h2>타일맵을 쓴다면 그리드부터 맞춰라</h2>
+      <p>
+        플랫포머나 탑다운 RPG처럼 타일맵 위에서 캐릭터가 움직이는 게임이라면, 캐릭터
+        크기를 타일 크기의 배수 또는 약수로 맞추는 것이 좋습니다. 예를 들어 타일이
+        16x16이라면 캐릭터는 16x32(가로 1타일, 세로 2타일)처럼 그리드에 맞아떨어지는
+        크기로 그리는 경우가 많습니다. 이렇게 하면 충돌 판정, 카메라 스크롤, 레벨
+        디자인 도구에서의 배치가 훨씬 예측 가능해집니다.
+      </p>
+
+      <h2>실전 체크리스트</h2>
+      <ul class="steps">
+        <li><strong>1. 레퍼런스 먼저</strong>비슷한 장르의 게임 2~3개를 골라 캐릭터
+          스프라이트 크기를 실제로 재보세요. 감으로 정하는 것보다 훨씬 정확합니다.</li>
+        <li><strong>2. 타일 크기와 맞추기</strong>맵 타일을 쓴다면 캐릭터 크기를 타일
+          크기의 배수로 정하세요.</li>
+        <li><strong>3. 애니메이션 프레임 수 고려</strong>크기가 커질수록 프레임당
+          작업 시간이 늘어납니다. 팀 규모와 일정에 맞는 크기를 고르세요.</li>
+        <li><strong>4. 정수 배율로만 확대</strong>2배, 3배, 4배처럼 정수 배율로만
+          화면에 출력해 픽셀이 뭉개지지 않게 하세요.</li>
+      </ul>
+
+      <p>
+        스프라이트 크기를 정했다면 <a href="pixel-gallery.html">픽셀 이미지 추천</a>
+        페이지에서 비슷한 밀도의 아이콘을 참고하거나, 직접 그린 이미지를 <a href="index.html">이미지
+        크기 변경 도구</a>로 원하는 배율에 맞춰 바로 다운로드해보세요.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

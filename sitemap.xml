@@ -26,6 +26,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/pixel-gallery.html" />
   </url>
   <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guides.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guides.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guides.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guides.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-engine-comparison.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-free-assets.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
+  </url>
+  <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/game-tools.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/game-tools.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/game-tools.html" />
@@ -84,6 +108,30 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/pixel-gallery.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/pixel-gallery.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/pixel-gallery.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guides.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guides.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guides.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guides.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-engine-comparison.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-engine-comparison.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-free-assets.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-free-assets.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-free-assets.html" />
   </url>
   <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/en/game-tools.html</loc>

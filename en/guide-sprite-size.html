@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>How to Choose Your Pixel Art Sprite Size | PixelCraft Studio</title>
+  <meta name="description" content="From 16x16 to 96x96 - practical rules for picking a pixel art sprite size for characters, tilemaps, and icons, plus tips on integer scaling and tile-grid alignment." />
+  <meta name="keywords" content="pixel art size, sprite size, tilemap size, pixel art tutorial, pixel art guide" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-size.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="PixelCraft Studio" />
+  <meta property="og:title" content="How to Choose Your Pixel Art Sprite Size" />
+  <meta property="og:description" content="Practical rules for picking a pixel art sprite size for characters, tilemaps, and icons." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-size.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Choose Your Pixel Art Sprite Size",
+    "description": "From 16x16 to 96x96 - practical rules for picking a pixel art sprite size for characters, tilemaps, and icons.",
+    "inLanguage": "en",
+    "publisher": { "@type": "Organization", "name": "PixelCraft Studio" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>How to Choose Your Pixel Art Sprite Size</h1>
+      <p>Guide &middot; <a href="guides.html">Back to guides</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        The first thing that trips up new pixel artists usually isn't brush
+        technique or color choice - it's <strong>"how many pixels should this
+        character actually be?"</strong> Skip that decision and you'll often
+        end up with a sprite that doesn't line up with your tilemap, turns
+        blurry when scaled, or needs more animation frames than you can
+        realistically draw. This guide lays out how to pick a sprite size
+        using the same rules real games are built on.
+      </p>
+
+      <h2>Why sprite size matters this much</h2>
+      <p>
+        Sprite size isn't just "how big it looks on screen." Once you commit
+        to a size, it decides how much detail a character can carry, how much
+        work each animation frame takes, how the sprite aligns to your
+        tilemap, and even how large a touch target feels on mobile. Changing
+        size mid-project usually means redrawing everything you've already
+        made, so locking it in before you draw is the single biggest
+        time-saver in pixel art production.
+      </p>
+
+      <h2>Common sprite sizes and what they're for</h2>
+      <ul>
+        <li><strong>16x16px</strong> - the smallest practical unit, roughly
+          what NES and Game Boy-era characters used. Good for simple
+          silhouette-based characters, UI icons, or minimap markers. There's
+          barely room for detail, so it also doubles as good practice for
+          reading a shape with only 2-4 colors.</li>
+        <li><strong>32x32px</strong> - the most common size in indie pixel
+          art games. Enough room for a facial expression, clothing silhouette,
+          and a weapon, and it tiles cleanly against most tile-based maps.
+          PixelCraft Studio's own <a href="pixel-gallery.html">pixel icon
+          gallery</a> was drawn at roughly this density.</li>
+        <li><strong>48x48px</strong> - a step up from 32x32, often used for
+          player characters or mini-bosses that need slightly more expressive
+          walk and attack animations.</li>
+        <li><strong>64x64px and up</strong> - closer to illustration-level
+          detail, used for bosses, cutscene portraits, or card-game character
+          art. Keep in mind that drawing time and animation workload scale up
+          right along with the size.</li>
+      </ul>
+
+      <h2>Resolution, canvas size, and display size are three different things</h2>
+      <p>
+        One of the most common mistakes is drawing a 32x32 sprite and then
+        rendering it on screen at literal 32-pixel size. On modern displays
+        that makes the character look tiny in a corner of the screen.
+        Instead, scale it up by an <strong>integer factor (2x, 3x, 4x, and so
+        on)</strong> - a 32x32 sprite rendered at 4x becomes 128x128 on
+        screen. Scaling by a non-integer factor (like 1.5x) smears the pixel
+        edges and destroys the crisp, blocky look that makes pixel art read
+        as pixel art in the first place, so it's worth avoiding entirely.
+      </p>
+      <p>
+        When you need to resize an original sprite or check how it looks at
+        different scales, the <a href="index.html">image resize tool</a> runs
+        entirely in your browser and lets you try scale buttons instantly.
+      </p>
+
+      <h2>If you use a tilemap, align to the grid first</h2>
+      <p>
+        For platformers or top-down RPGs where characters move across a
+        tilemap, it helps to size your character as a multiple (or divisor)
+        of your tile size. If your tiles are 16x16, characters are often
+        drawn at 16x32 (one tile wide, two tiles tall) so they line up
+        cleanly with the grid. That makes collision detection, camera
+        scrolling, and level design far more predictable.
+      </p>
+
+      <h2>Practical checklist</h2>
+      <ul class="steps">
+        <li><strong>1. Start from references</strong>Measure the actual
+          sprite size in two or three games in a similar genre. It's far more
+          reliable than guessing.</li>
+        <li><strong>2. Match your tile size</strong>If you're using a
+          tilemap, size characters as a multiple of the tile size.</li>
+        <li><strong>3. Budget for animation frames</strong>Bigger sprites
+          take longer per frame - pick a size that fits your team and
+          timeline.</li>
+        <li><strong>4. Scale by integers only</strong>Render at 2x, 3x, or 4x
+          so pixels stay crisp instead of blurring.</li>
+      </ul>
+
+      <p>
+        Once you've settled on a size, browse the <a href="pixel-gallery.html">pixel
+        image picks</a> page for icons at a similar density, or resize your
+        own artwork instantly with the <a href="index.html">image resize
+        tool</a>.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/pixel-art.js"></script>
+  <script src="../js/background-characters.js"></script>
+  <script src="../js/common.js"></script>
+</body>
+</html>

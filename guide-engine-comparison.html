@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>인디 게임 엔진 선택 가이드: Godot vs Unity vs Construct 3 | 픽셀크래프트 스튜디오</title>
+  <meta name="description" content="학습 곡선, 수익 구조, 플랫폼 지원까지 Godot·Unity·Construct 3 세 게임 엔진을 실제 기준으로 비교합니다. 나에게 맞는 엔진을 상황별로 추천합니다." />
+  <meta name="keywords" content="게임 엔진 비교, Godot, Unity, Construct 3, 인디 게임 엔진, 게임 엔진 추천" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-engine-comparison.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="인디 게임 엔진 선택 가이드: Godot vs Unity vs Construct 3" />
+  <meta property="og:description" content="학습 곡선, 수익 구조, 플랫폼 지원까지 세 엔진을 실제 기준으로 비교합니다." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/guide-engine-comparison.html" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "인디 게임 엔진 선택 가이드: Godot vs Unity vs Construct 3",
+    "description": "학습 곡선, 수익 구조, 플랫폼 지원까지 세 엔진을 실제 기준으로 비교합니다.",
+    "inLanguage": "ko",
+    "publisher": { "@type": "Organization", "name": "픽셀크래프트 스튜디오" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>인디 게임 엔진 선택 가이드: Godot vs Unity vs Construct 3</h1>
+      <p>가이드 &middot; <a href="guides.html">가이드 목록으로</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        "어떤 게임 엔진을 써야 하나요?"는 게임을 처음 만들려는 사람이 가장 많이 하는
+        질문이지만, 정답은 하나가 아닙니다. 만들려는 게임의 장르, 팀 규모, 프로그래밍
+        경험, 그리고 수익화 계획에 따라 맞는 엔진이 달라집니다. 이 글에서는 인디
+        개발자들이 가장 많이 선택하는 세 엔진 <strong>Godot, Unity, Construct 3</strong>를
+        실제로 개발할 때 부딪히는 기준으로 비교합니다. 나머지 엔진(Unreal Engine,
+        GameMaker, RPG Maker)에 대한 간단한 요약은 <a href="game-tools.html">게임 제작
+        툴 소개</a> 페이지에서 확인할 수 있습니다.
+      </p>
+
+      <h2>무엇을 기준으로 골라야 할까</h2>
+      <p>
+        엔진 선택에서 흔히 성능만 따지는데, 실제로는 다음 다섯 가지가 더 중요한 경우가
+        많습니다.
+      </p>
+      <ul>
+        <li><strong>학습 곡선</strong> — 프로그래밍 경험이 없다면 노코드/로우코드 지원
+          여부가 첫 완성작을 만드느냐 마느냐를 가릅니다.</li>
+        <li><strong>수익 구조</strong> — 무료인지, 매출 기준 로열티가 발생하는지는 팀
+          자금 사정에 직접적인 영향을 줍니다.</li>
+        <li><strong>2D 특화 여부</strong> — 3D 지원이 강한 엔진은 2D 게임에는 오히려
+          불필요하게 무겁고 복잡할 수 있습니다.</li>
+        <li><strong>커뮤니티와 자료</strong> — 막혔을 때 검색해서 답을 찾을 수 있는지는
+          체감 난이도에 큰 영향을 줍니다.</li>
+        <li><strong>배포 플랫폼</strong> — 목표 플랫폼(PC, 모바일, 웹, 콘솔)을 해당
+          엔진이 잘 지원하는지 미리 확인해야 합니다.</li>
+      </ul>
+
+      <h2>Godot — 무료·오픈소스, 2D에 특히 강함</h2>
+      <p>
+        Godot은 완전 무료이며 오픈소스인 엔진으로, 로열티나 매출 배분 없이 상업
+        프로젝트에 자유롭게 쓸 수 있습니다. 자체 스크립트 언어인 GDScript는 파이썬과
+        문법이 비슷해서 프로그래밍 입문자도 비교적 빠르게 익힙니다. 특히 2D 게임
+        워크플로우(타일맵, 애니메이션 트리, 2D 물리)가 처음부터 잘 갖춰져 있어서 픽셀
+        아트 스타일의 인디 게임과 궁합이 좋습니다. 단점은 3D 기능이나 대규모 프로젝트용
+        에셋 파이프라인이 Unity·Unreal만큼 성숙하지 않다는 점, 그리고 상용 엔진 대비
+        튜토리얼·플러그인 생태계가 아직 작다는 점입니다.
+      </p>
+
+      <h2>Unity — 가장 넓은 생태계, C# 기반</h2>
+      <p>
+        Unity는 전 세계에서 가장 널리 쓰이는 상용 엔진 중 하나로, 2D와 3D를 모두
+        지원하고 C#으로 스크립팅합니다. 방대한 에셋 스토어와 압도적으로 많은
+        튜토리얼·질문답변 자료가 있어서 막혔을 때 검색으로 해결되는 경우가 많습니다.
+        개인·소규모 프로젝트는 무료 플랜으로 시작할 수 있고, 매출이 일정 기준을 넘으면
+        유료 플랜으로 전환해야 합니다. 다만 C#을 처음 접하는 입문자에게는 GDScript보다
+        진입 장벽이 조금 더 높고, 프로젝트가 커질수록 빌드 시간과 설정 복잡도도
+        함께 늘어나는 편입니다.
+      </p>
+
+      <h2>Construct 3 — 코드 없이 브라우저에서 바로</h2>
+      <p>
+        Construct 3는 코드를 직접 작성하지 않고 이벤트-액션을 드래그 앤 드롭으로
+        구성하는 노코드 엔진입니다. 브라우저에서 바로 실행되기 때문에 설치 과정
+        자체가 없고, 프로그래밍 경험이 전혀 없는 사람도 며칠 안에 플레이 가능한
+        프로토타입을 만들어볼 수 있습니다. 2D 게임, 특히 캐주얼·퍼즐·아케이드 장르에
+        최적화되어 있습니다. 반대로 코드 기반의 세밀한 커스텀 로직이 필요한 복잡한
+        시스템이나 3D 게임에는 적합하지 않고, 구독형 요금제라는 점도 고려해야 합니다.
+      </p>
+
+      <h2>상황별 추천</h2>
+      <ul>
+        <li><strong>예산 없이 2D 픽셀 아트 게임을 만들고 싶다면</strong> → Godot.
+          로열티가 없고 2D 워크플로우가 처음부터 잘 갖춰져 있습니다.</li>
+        <li><strong>막힐 때마다 검색으로 답을 찾고 싶고, 나중에 3D로 확장할 수도
+          있다면</strong> → Unity. 자료와 커뮤니티 규모가 가장 큽니다.</li>
+        <li><strong>코드를 전혀 모르고 빠르게 프로토타입부터 만들어보고 싶다면</strong>
+          → Construct 3. 설치 없이 브라우저에서 바로 시작할 수 있습니다.</li>
+      </ul>
+
+      <p>
+        세 엔진 모두 무료로(또는 무료 체험으로) 바로 시작해볼 수 있으니, 글만 읽고
+        고르기보다 각 공식 사이트에서 짧은 튜토리얼을 하나씩 따라 해보고 손에 맞는
+        엔진을 고르는 것을 추천합니다. Unreal Engine, GameMaker, RPG Maker를 포함한
+        전체 6종 요약은 <a href="game-tools.html">게임 제작 툴 소개</a>에서 볼 수
+        있습니다.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

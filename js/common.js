@@ -18,6 +18,7 @@
 
   const NAV_EXTRA = [
     { file: "pixel-gallery.html", ko: "픽셀 이미지 추천", en: "Pixel Image Picks" },
+    { file: "guides.html", ko: "가이드", en: "Guides" },
     { file: "game-tools.html", ko: "게임 제작 툴 소개", en: "Game-Making Tools" },
     { file: "about.html", ko: "사이트 소개", en: "About" },
     { file: "image-request.html", ko: "이미지 요청", en: "Image Request" },
