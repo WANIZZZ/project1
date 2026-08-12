@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "test": "node scripts/check-js.js",
-    "dev": "wrangler pages dev ."
+    "dev": "wrangler pages dev . --compatibility-date=2026-08-11"
+  },
+  "devDependencies": {
+    "wrangler": "^4.121.0"
   }
 }
