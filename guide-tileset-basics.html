@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>타일셋 디자인과 오토타일링 기초 | 픽셀크래프트 스튜디오</title>
+  <meta name="description" content="이음매 없는 타일을 그리는 법부터 47타일 오토타일 세트가 왜 필요한지까지, 2D 게임 맵 제작에 필요한 타일셋 기초를 정리했습니다." />
+  <meta name="keywords" content="타일셋, 오토타일링, 타일맵, autotile, 픽셀 아트 배경, 게임 개발 가이드" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="타일셋 디자인과 오토타일링 기초" />
+  <meta property="og:description" content="이음매 없는 타일을 그리는 법부터 47타일 오토타일 세트가 필요한 이유까지." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "타일셋 디자인과 오토타일링 기초",
+    "description": "이음매 없는 타일을 그리는 법부터 47타일 오토타일 세트가 필요한 이유까지.",
+    "inLanguage": "ko",
+    "publisher": { "@type": "Organization", "name": "픽셀크래프트 스튜디오" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>타일셋 디자인과 오토타일링 기초</h1>
+      <p>가이드 &middot; <a href="guides.html">가이드 목록으로</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        플랫포머나 탑다운 게임의 맵은 대부분 작은 타일을 반복해서 붙여 만듭니다. 캐릭터
+        하나 그리는 것과는 완전히 다른 종류의 작업으로, 낱개의 타일이 예쁜 것보다
+        <strong>옆 타일과 이어졌을 때 자연스러운지</strong>가 훨씬 중요합니다. 이 가이드는
+        타일셋을 그릴 때 반드시 고려해야 할 기본기와, 지형 경계를 자동으로 처리해주는
+        오토타일링의 원리를 정리합니다.
+      </p>
+
+      <h2>타일 크기는 캐릭터 크기와 맞춰라</h2>
+      <p>
+        타일 크기를 먼저 정하고 그 배수로 캐릭터를 그리는 것이 순서상 자연스럽습니다.
+        16x16이나 32x32처럼 흔한 크기를 쓰면 <a href="guide-free-assets.html">외부에서
+        받아온 무료 에셋</a>과 섞어 쓰기도 수월해집니다. 타일 크기와 캐릭터 크기의 관계는
+        <a href="guide-sprite-size.html">스프라이트 사이즈 정하는 법</a> 가이드에서 더
+        자세히 다룹니다.
+      </p>
+
+      <h2>이음매(seam)가 생기지 않게 그리기</h2>
+      <p>
+        같은 타일을 가로세로로 반복해 붙였을 때 경계선이 두드러져 보이면 "타일이 티가
+        난다"는 인상을 줍니다. 이를 막으려면 타일의 네 변에 걸치는 무늬(풀, 돌 질감 등)를
+        그릴 때 왼쪽 끝과 오른쪽 끝, 위쪽 끝과 아래쪽 끝의 픽셀이 자연스럽게 이어지도록
+        그려야 합니다. 그리기 툴에서 캔버스를 반복(wrap-around) 미리보기로 확인하거나,
+        완성된 타일을 4방향으로 복제해 붙여보고 경계선이 도드라지는 부분이 없는지 직접
+        확인하는 것이 가장 확실한 방법입니다.
+      </p>
+
+      <h2>왜 타일 하나로는 부족한가</h2>
+      <p>
+        잔디밭 한가운데는 잔디 타일 하나로 채울 수 있지만, 잔디와 흙이 만나는 경계는
+        이야기가 다릅니다. 위쪽이 잔디고 아래쪽이 흙인 타일, 왼쪽 모서리만 흙인 타일,
+        오른쪽 모서리만 흙인 타일처럼 <strong>경계 방향의 조합마다 별도의 타일</strong>이
+        필요합니다. 이걸 전부 손으로 하나씩 그리고 배치하면 지형 종류가 늘어날수록
+        작업량이 기하급수적으로 늘어납니다.
+      </p>
+
+      <h2>오토타일링이 해결하는 문제</h2>
+      <p>
+        오토타일링은 인접한 8방향 타일이 같은 지형인지 다른 지형인지를 검사해서, 어떤
+        경계 타일을 그려야 하는지 자동으로 골라주는 기능입니다. 대부분의 엔진은
+        <strong>47타일 블롭(blob) 세트</strong>라는 표준 레이아웃을 사용합니다. 이는
+        상하좌우 4방향과 대각선 4방향, 총 8방향의 인접 여부 조합 중 실제로 시각적으로
+        구분이 필요한 47가지 경우의 수만 남긴 세트로, 이 47장만 미리 그려두면 나머지 조합은
+        엔진이 알아서 조립해줍니다. Godot의 TileSet 오토타일 기능이나 Tiled 맵 에디터의
+        Wang 타일 기능이 모두 이 방식을 기반으로 동작합니다.
+      </p>
+
+      <h2>처음이라면 9타일 축소판으로 시작해도 된다</h2>
+      <p>
+        47타일을 전부 그리는 건 부담스러울 수 있습니다. 초보자라면 우선 중앙, 상하좌우
+        변, 네 모서리까지 총 9장으로 구성된 <strong>3x3 축소 세트</strong>로 시작해도
+        충분히 자연스러운 지형을 표현할 수 있습니다. 완성도를 더 높이고 싶을 때 나머지
+        조합을 하나씩 추가하는 방식으로 접근하면 부담이 훨씬 줄어듭니다.
+      </p>
+
+      <h2>실전 체크리스트</h2>
+      <ul class="steps">
+        <li><strong>1. 타일 크기부터 확정</strong>캐릭터 크기와의 배수 관계를 먼저
+          정하세요.</li>
+        <li><strong>2. 반복 붙여서 확인</strong>완성한 타일을 여러 번 복제해 붙여보고
+          이음매가 도드라지지 않는지 확인하세요.</li>
+        <li><strong>3. 9타일 세트부터</strong>중앙+변 4개+모서리 4개로 시작해 필요할
+          때 47타일로 확장하세요.</li>
+        <li><strong>4. 엔진의 오토타일 기능 활용</strong>Godot TileSet, Tiled Wang
+          타일처럼 조합을 자동으로 처리해주는 기능을 적극 활용하세요.</li>
+      </ul>
+
+      <p>
+        타일과 함께 쓸 캐릭터나 오브젝트 아이콘이 필요하다면 <a href="pixel-gallery.html">픽셀
+        이미지 추천</a> 페이지에서 저작권 걱정 없는 오리지널 아이콘을 바로 받아볼 수
+        있습니다.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

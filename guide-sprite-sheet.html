@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>스프라이트 시트 만들고 사용하는 법 | 픽셀크래프트 스튜디오</title>
+  <meta name="description" content="애니메이션 프레임을 한 장의 이미지로 합치는 스프라이트 시트 제작법을 정리했습니다. 그리드 배치와 타이트 패킹의 차이, 패딩으로 블리딩을 막는 법, 엔진에서 잘라 쓰는 방식까지 다룹니다." />
+  <meta name="keywords" content="스프라이트 시트, sprite sheet, 텍스처 아틀라스, 픽셀 아트 애니메이션, 게임 개발 가이드" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="스프라이트 시트 만들고 사용하는 법" />
+  <meta property="og:description" content="프레임을 한 장의 이미지로 합치는 배치 방법부터 여백·정렬, 엔진에서 잘라 쓰는 방식까지." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "스프라이트 시트 만들고 사용하는 법",
+    "description": "프레임을 한 장의 이미지로 합치는 배치 방법부터 여백·정렬, 엔진에서 잘라 쓰는 방식까지.",
+    "inLanguage": "ko",
+    "publisher": { "@type": "Organization", "name": "픽셀크래프트 스튜디오" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>스프라이트 시트 만들고 사용하는 법</h1>
+      <p>가이드 &middot; <a href="guides.html">가이드 목록으로</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        캐릭터 애니메이션을 만들다 보면 프레임이 하나씩 늘어나면서 이미지 파일도 함께
+        늘어납니다. 프레임마다 파일을 따로 관리하면 엔진에 하나씩 불러와야 하고, 파일
+        이름이 조금만 어긋나도 애니메이션이 깨집니다. <strong>스프라이트 시트</strong>는
+        이런 프레임들을 한 장의 이미지에 모아두는 방식으로, 대부분의 2D 게임 엔진이
+        기본적으로 지원하는 표준적인 작업 방식입니다.
+      </p>
+
+      <h2>왜 낱장 대신 시트로 관리하는가</h2>
+      <p>
+        스프라이트 시트를 쓰면 이미지 파일 하나만 불러오면 되기 때문에 로딩이 단순해지고,
+        렌더링 시 텍스처를 전환하는 횟수(드로우 콜)도 줄어들어 성능에도 유리합니다.
+        무엇보다 애니메이션 하나가 통째로 파일 하나에 들어있으므로 버전 관리나 파일
+        전달이 훨씬 간편합니다. 프레임 수가 2~3개뿐인 간단한 이펙트라면 낱장으로도
+        충분하지만, 걷기·공격처럼 여러 애니메이션을 가진 캐릭터라면 시트로 관리하는
+        편이 훨씬 안정적입니다.
+      </p>
+
+      <h2>그리드 배치 vs 타이트 패킹</h2>
+      <p>
+        스프라이트 시트를 만드는 방법은 크게 두 가지입니다.
+      </p>
+      <ul>
+        <li><strong>그리드 배치</strong> — 모든 프레임을 동일한 셀 크기(예: 32x32)로
+          맞춰 격자 형태로 나열하는 방식입니다. 셀 크기와 개수만 알면 코드에서 좌표를
+          계산하기 쉬워, 프레임 크기가 일정한 캐릭터 애니메이션에 가장 널리 쓰입니다.
+          <a href="guide-sprite-size.html">스프라이트 사이즈를 미리 정해두면</a> 이
+          작업이 훨씬 수월해집니다.</li>
+        <li><strong>타이트 패킹(텍스처 아틀라스)</strong> — 프레임마다 크기가 제각각일
+          때, 빈 공간을 최소화하도록 자동으로 빽빽하게 배치하는 방식입니다. UI 아이콘처럼
+          크기가 다양한 이미지를 모을 때 유리하지만, 좌표를 수동으로 계산할 수 없으므로
+          보통 좌표 정보를 담은 별도의 JSON/XML 메타데이터 파일과 함께 사용합니다.</li>
+      </ul>
+
+      <h2>패딩(여백)으로 블리딩을 막아라</h2>
+      <p>
+        프레임 사이에 여백 없이 딱 붙여서 배치하면, 화면에 그릴 때 확대·필터링 과정에서
+        옆 프레임의 픽셀이 살짝 섞여 보이는 <strong>블리딩(bleeding)</strong> 현상이
+        생길 수 있습니다. 특히 픽셀 아트처럼 선명한 경계가 중요한 그래픽에서는 이 현상이
+        눈에 잘 띕니다. 프레임 사이에 최소 1~2픽셀의 투명한 여백(패딩)을 두면 이 문제를
+        예방할 수 있습니다. 셀 크기를 정할 때부터 실제 캐릭터 크기 + 패딩만큼 여유를
+        두고 설계하는 것이 좋습니다.
+      </p>
+
+      <h2>네이밍과 순서 규칙</h2>
+      <p>
+        시트 안에서 애니메이션별로 행(row)을 나누고, 행마다 idle, walk, attack처럼
+        이름을 붙여 정리해두면 나중에 다시 열어봐도 헷갈리지 않습니다. 개별 프레임을
+        따로 내보낼 일이 있다면 <code>walk_00</code>, <code>walk_01</code>처럼 두 자리
+        숫자로 순서를 맞춰두는 것이 좋습니다. 숫자를 한 자리로 두면 <code>walk_10</code>이
+        <code>walk_1</code> 다음이 아니라 <code>walk_2</code> 앞에 정렬되는 식의 순서
+        오류가 자주 발생합니다.
+      </p>
+
+      <h2>엔진에서 잘라 쓰는 방식</h2>
+      <p>
+        대부분의 엔진은 스프라이트 시트를 자동으로 슬라이스하는 기능을 제공합니다.
+        Godot는 <code>SpriteFrames</code> 리소스에서 그리드 크기를 지정해 프레임을
+        자동으로 나눠주고, Unity는 Sprite Editor의 Grid By Cell Size 옵션으로 동일한
+        작업을 합니다. Aseprite 같은 픽셀 아트 툴에서 애니메이션을 작업했다면, 시트
+        이미지와 함께 프레임 좌표가 담긴 JSON을 내보내 엔진에 그대로 가져올 수 있어
+        수작업으로 좌표를 맞추는 실수를 줄일 수 있습니다.
+      </p>
+
+      <h2>실전 체크리스트</h2>
+      <ul class="steps">
+        <li><strong>1. 셀 크기 먼저 확정</strong>프레임 크기가 일정하다면 셀 크기와
+          패딩을 먼저 정하고 그 안에서 그리세요.</li>
+        <li><strong>2. 애니메이션별로 행 분리</strong>idle, walk, attack을 한 행씩
+          나눠 정리하면 이후 수정이 쉬워집니다.</li>
+        <li><strong>3. 패딩 1~2px 확보</strong>확대 렌더링 시 블리딩이 생기지 않도록
+          프레임 사이 여백을 남기세요.</li>
+        <li><strong>4. 메타데이터 함께 보관</strong>타이트 패킹을 쓴다면 좌표
+          JSON/XML 파일을 이미지와 항상 같이 관리하세요.</li>
+      </ul>
+
+      <p>
+        시트에 들어갈 프레임 크기를 아직 정하지 못했다면 <a href="guide-sprite-size.html">스프라이트
+        사이즈 정하는 법</a>을 먼저 읽어보세요. 완성한 시트를 원하는 배율로 조절해야
+        한다면 <a href="index.html">이미지 크기 변경 도구</a>를 브라우저에서 바로
+        사용할 수 있습니다.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

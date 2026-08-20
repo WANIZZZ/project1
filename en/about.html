@@ -64,11 +64,27 @@
         New additions will appear in the top navigation as soon as they're ready.
       </p>
 
-      <h2>Contact</h2>
+      <h2 id="contact">Contact</h2>
       <p>
-        Questions or suggestions are always welcome. See our
+        Questions or suggestions are always welcome - use the form below. See our
         <a href="privacy.html">Privacy Policy</a> for details on how we handle information.
       </p>
+      <form id="contact-form" class="request-form">
+        <div class="field">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" maxlength="1000" rows="5" required></textarea>
+        </div>
+        <div class="field">
+          <label for="contact-email">Email for a reply (optional)</label>
+          <input id="contact-email" name="email" type="email" maxlength="100" placeholder="Only if you'd like a response" />
+        </div>
+        <div class="field-honeypot" aria-hidden="true">
+          <label for="contact-website">Website</label>
+          <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <p id="contact-status" class="tool-status" role="status"></p>
+      </form>
     </section>
   </main>
 
@@ -77,5 +93,6 @@
   <script src="../js/pixel-art.js"></script>
   <script src="../js/background-characters.js"></script>
   <script src="../js/common.js"></script>
+  <script src="../js/contact.js"></script>
 </body>
 </html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>게임 UI·HUD 아이콘 디자인 기초 | 픽셀크래프트 스튜디오</title>
+  <meta name="description" content="체력바, 인벤토리 슬롯 등 작은 크기에서도 알아보기 쉬운 게임 HUD 아이콘을 그리는 기준을 정리했습니다. 실루엣 우선 설계, 색상 대비, 상태 표시 방법까지 다룹니다." />
+  <meta name="keywords" content="게임 UI 디자인, HUD 아이콘, 인벤토리 아이콘, 체력바, 픽셀 아트 UI, 게임 개발 가이드" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-ui-hud-icons.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="픽셀크래프트 스튜디오" />
+  <meta property="og:title" content="게임 UI·HUD 아이콘 디자인 기초" />
+  <meta property="og:description" content="체력바, 인벤토리 슬롯 등 작은 크기에서도 알아보기 쉬운 HUD 아이콘을 그리는 기준." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "게임 UI·HUD 아이콘 디자인 기초",
+    "description": "체력바, 인벤토리 슬롯 등 작은 크기에서도 알아보기 쉬운 HUD 아이콘을 그리는 기준.",
+    "inLanguage": "ko",
+    "publisher": { "@type": "Organization", "name": "픽셀크래프트 스튜디오" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>게임 UI·HUD 아이콘 디자인 기초</h1>
+      <p>가이드 &middot; <a href="guides.html">가이드 목록으로</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        캐릭터 스프라이트는 화면의 절반을 차지해도 괜찮지만, 체력바 옆 아이콘이나
+        인벤토리 슬롯 안 아이템 아이콘은 대부분 24~32픽셀 안팎의 아주 작은 공간에
+        들어갑니다. 이렇게 작은 크기에서는 "예쁜가"보다 <strong>"0.5초 안에 무엇인지
+        알아볼 수 있는가"</strong>가 훨씬 중요한 기준이 됩니다. 이 가이드는 작은 화면
+        공간에서도 명확하게 읽히는 HUD·인벤토리 아이콘을 그리기 위한 기준을 정리합니다.
+      </p>
+
+      <h2>실루엣이 색보다 먼저다</h2>
+      <p>
+        아이콘을 회색 한 가지 색으로 채워도 무엇인지 알아볼 수 있어야 합니다. 검 아이콘은
+        칼날과 손잡이의 실루엣만으로, 물약 아이콘은 병 모양의 윤곽만으로 구분이 가능해야
+        하는 식입니다. 색을 입히는 건 그 다음 단계이고, 실루엣이 애매하면 아무리 색을
+        잘 써도 작은 크기에서는 뭉개져 보입니다. 스케치 단계에서 한 가지 색으로 채운
+        섬네일을 만들어보고 알아볼 수 있는지 먼저 확인하는 습관을 들이는 것이 좋습니다.
+      </p>
+
+      <h2>디테일보다 대비를 우선하라</h2>
+      <p>
+        24x24 같은 작은 캔버스에서는 그림자나 하이라이트 같은 디테일을 욕심내면 오히려
+        형태가 흐려집니다. 배경과 아이콘 사이의 명도 대비, 그리고 아이콘 안에서 가장
+        중요한 부분(무기의 날, 물약의 액체 색)과 나머지 부분의 대비를 확실히 주는 것이
+        우선입니다. 인벤토리 아이콘처럼 여러 개가 나란히 놓이는 경우, 아이템 종류별로
+        기본 색상 톤을 다르게 두면(무기는 차가운 톤, 소모품은 따뜻한 톤 등) 사용자가
+        형태를 읽기 전에 색만 보고도 대략적인 분류를 짐작할 수 있습니다.
+      </p>
+
+      <h2>체력바에서 자주 하는 실수</h2>
+      <p>
+        체력바는 게임 화면에서 가장 자주, 가장 짧은 시간 동안 흘끗 보는 UI 요소입니다.
+        그라데이션이나 장식이 많은 체력바는 막상 게임 플레이 중에는 "얼마나 남았는지"를
+        순간적으로 파악하기 어렵게 만듭니다. 배경 색과 확실히 구분되는 단색 채우기, 그리고
+        25%·50%·75% 같은 구간에서 색이 바뀌는 경고 표시(예: 초록 → 노랑 → 빨강)를 함께
+        쓰면 수치를 읽지 않고도 위험 여부를 직관적으로 파악할 수 있습니다.
+      </p>
+
+      <h2>상태(장착·쿨다운·비활성) 표시 방법</h2>
+      <p>
+        인벤토리나 스킬 아이콘은 상태에 따라 다르게 보여야 할 때가 많습니다. 흔히 쓰는
+        방법은 아이콘 자체를 다시 그리는 대신, 같은 아이콘 위에 <strong>오버레이</strong>를
+        얹는 것입니다. 장착 중인 아이템에는 테두리 색을 다르게 하거나 체크 표시를 추가하고,
+        쿨다운 중인 스킬은 아이콘을 어둡게 하고 남은 시간을 숫자로 겹쳐 표시하며, 사용
+        불가능한 아이템은 채도를 낮추고 반투명하게 처리하는 식입니다. 이렇게 하면 아이콘
+        원본은 하나만 그려두고 오버레이만 조합해 여러 상태를 표현할 수 있어 작업량도
+        줄어듭니다.
+      </p>
+
+      <h2>실전 체크리스트</h2>
+      <ul class="steps">
+        <li><strong>1. 단색 실루엣으로 먼저 검증</strong>회색 한 가지로 채워도
+          형태가 구분되는지 확인하세요.</li>
+        <li><strong>2. 실제 표시 크기로 미리보기</strong>확대된 원본이 아니라 게임에서
+          실제로 보일 크기(예: 32x32)로 축소해서 확인하세요.</li>
+        <li><strong>3. 대비를 최우선으로</strong>디테일을 줄이더라도 배경과의 대비,
+          핵심 부위와의 대비는 확실히 남기세요.</li>
+        <li><strong>4. 상태는 오버레이로 처리</strong>장착·쿨다운·비활성 상태마다 새로
+          그리지 말고 겹쳐 쓰는 오버레이로 해결하세요.</li>
+      </ul>
+
+      <p>
+        직접 그리기 전에 참고할 만한 아이콘이 필요하다면 <a href="pixel-gallery.html">픽셀
+        이미지 추천</a> 페이지에서 오리지널 8비트 아이콘 43종을 무료로 다운로드할 수
+        있습니다. 원하는 아이콘이 없다면 <a href="image-request.html">이미지 요청</a>
+        게시판에 남겨보세요.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/pixel-art.js"></script>
+  <script src="js/background-characters.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

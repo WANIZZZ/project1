@@ -63,5 +63,32 @@
       page: "guide-launch-checklist.html",
       icon: "cube",
     },
+    {
+      slug: "guide-sprite-sheet",
+      ko: "스프라이트 시트 만들고 사용하는 법",
+      en: "How to Build and Use Sprite Sheets",
+      descKo: "프레임을 한 장의 이미지로 합치는 배치 방법부터 여백·정렬, 엔진에서 잘라 쓰는 방식까지.",
+      descEn: "Packing animation frames into one image, spacing and alignment, and how engines slice them.",
+      page: "guide-sprite-sheet.html",
+      icon: "sheet",
+    },
+    {
+      slug: "guide-tileset-basics",
+      ko: "타일셋 디자인과 오토타일링 기초",
+      en: "Tileset Design and Autotiling Basics",
+      descKo: "이음매 없는 타일을 그리는 법부터 47타일 오토타일 세트가 필요한 이유까지.",
+      descEn: "Drawing seamless tiles and why a 47-tile autotile set solves the corner-piece problem.",
+      page: "guide-tileset-basics.html",
+      icon: "grid",
+    },
+    {
+      slug: "guide-ui-hud-icons",
+      ko: "게임 UI·HUD 아이콘 디자인 기초",
+      en: "Game UI and HUD Icon Design Basics",
+      descKo: "체력바, 인벤토리 슬롯 등 작은 크기에서도 알아보기 쉬운 HUD 아이콘을 그리는 기준.",
+      descEn: "Practical rules for health bars, inventory slots, and HUD icons that stay readable at a tiny size.",
+      page: "guide-ui-hud-icons.html",
+      icon: "heart",
+    },
   ];
 })();

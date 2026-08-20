@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>How to Build and Use Sprite Sheets | PixelCraft Studio</title>
+  <meta name="description" content="A practical guide to packing animation frames into a single sprite sheet image - grid layout vs. tight packing, using padding to stop bleeding, and how engines slice frames back out." />
+  <meta name="keywords" content="sprite sheet, texture atlas, pixel art animation, game development guide" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="PixelCraft Studio" />
+  <meta property="og:title" content="How to Build and Use Sprite Sheets" />
+  <meta property="og:description" content="Packing animation frames into one image, spacing and alignment, and how engines slice them." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Build and Use Sprite Sheets",
+    "description": "Packing animation frames into one image, spacing and alignment, and how engines slice them.",
+    "inLanguage": "en",
+    "publisher": { "@type": "Organization", "name": "PixelCraft Studio" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>How to Build and Use Sprite Sheets</h1>
+      <p>Guide &middot; <a href="guides.html">Back to guides</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        As a character animation grows frame by frame, so does the pile of image files behind
+        it. Manage each frame as a separate file and you end up loading them one at a time, and
+        the smallest naming mistake breaks the animation. A <strong>sprite sheet</strong> packs
+        all of those frames into a single image instead - it's the standard workflow most 2D
+        game engines are built to support out of the box.
+      </p>
+
+      <h2>Why one sheet instead of loose files</h2>
+      <p>
+        A sprite sheet means the engine only has to load one image, which simplifies loading and
+        also cuts down on texture swaps (draw calls) during rendering, which helps performance
+        too. More importantly, an entire animation lives in one file, which makes version control
+        and handing files off to teammates much simpler. Loose files are fine for a simple
+        two- or three-frame effect, but a character with several animations - walk, attack, and
+        so on - is far more manageable as a sheet.
+      </p>
+
+      <h2>Grid layout vs. tight packing</h2>
+      <p>
+        There are two main ways to build a sprite sheet.
+      </p>
+      <ul>
+        <li><strong>Grid layout</strong> — every frame is fit into a uniform cell size (say,
+          32x32) and arranged in a grid. Knowing just the cell size and count makes it easy to
+          compute coordinates in code, which is why this is the standard approach for character
+          animations with consistent frame sizes. Deciding your
+          <a href="guide-sprite-size.html">sprite size</a> ahead of time makes this step much
+          easier.</li>
+        <li><strong>Tight packing (texture atlas)</strong> — when frames vary in size, they're
+          packed automatically to minimize wasted space. This works well for collections of
+          differently-sized assets like UI icons, but since coordinates can't be computed by
+          hand, it's normally paired with a separate JSON/XML metadata file that records where
+          each frame sits.</li>
+      </ul>
+
+      <h2>Use padding to avoid bleeding</h2>
+      <p>
+        Pack frames edge-to-edge with no gap and you risk <strong>bleeding</strong> - pixels
+        from a neighboring frame faintly showing up at the edge when the image is scaled or
+        filtered on screen. This is especially noticeable in pixel art, where crisp edges matter.
+        Leaving at least 1-2 transparent pixels of padding between frames prevents this. Plan your
+        cell size around the character's actual size plus that padding from the start.
+      </p>
+
+      <h2>Naming and ordering conventions</h2>
+      <p>
+        Splitting the sheet into rows by animation - idle, walk, attack - and labeling them keeps
+        things clear when you reopen the file later. If you ever need to export individual frames,
+        pad the frame number to two digits, like <code>walk_00</code>, <code>walk_01</code>.
+        Single-digit numbering is a common source of ordering bugs, since <code>walk_10</code>
+        sorts before <code>walk_2</code> instead of after <code>walk_1</code>.
+      </p>
+
+      <h2>How engines slice them back apart</h2>
+      <p>
+        Most engines can auto-slice a sprite sheet for you. Godot's <code>SpriteFrames</code>
+        resource splits frames automatically once you give it a grid size, and Unity's Sprite
+        Editor does the same thing through its Grid By Cell Size option. If you animated in a
+        pixel art tool like Aseprite, exporting the sheet alongside a JSON file of frame
+        coordinates lets you import both directly into the engine, cutting out manual coordinate
+        mistakes entirely.
+      </p>
+
+      <h2>Practical checklist</h2>
+      <ul class="steps">
+        <li><strong>1. Lock the cell size first</strong>if frames are a consistent size, decide
+          the cell size and padding before you start drawing.</li>
+        <li><strong>2. One row per animation</strong>split idle, walk, and attack into separate
+          rows to make future edits easier.</li>
+        <li><strong>3. Leave 1-2px of padding</strong>prevent bleeding when the sheet is
+          scaled up on screen.</li>
+        <li><strong>4. Keep metadata with the image</strong>if you're using tight packing,
+          always store the coordinate JSON/XML alongside the sheet.</li>
+      </ul>
+
+      <p>
+        If you haven't settled on a frame size yet, read
+        <a href="guide-sprite-size.html">How to Choose Your Pixel Art Sprite Size</a> first. Once
+        your sheet is built, you can scale it to whatever size you need right in your browser with
+        the <a href="index.html">image resize tool</a>.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/pixel-art.js"></script>
+  <script src="../js/background-characters.js"></script>
+  <script src="../js/common.js"></script>
+</body>
+</html>

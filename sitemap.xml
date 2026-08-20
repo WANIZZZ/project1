@@ -68,6 +68,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
   </url>
   <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-ui-hud-icons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+  </url>
+  <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/game-tools.html</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/game-tools.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/game-tools.html" />
@@ -168,6 +186,24 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-launch-checklist.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-launch-checklist.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-sprite-sheet.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-sprite-sheet.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+  </url>
+  <url>
+    <loc>https://pixelcraftstudio-2cd.pages.dev/en/guide-ui-hud-icons.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-ui-hud-icons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-ui-hud-icons.html" />
   </url>
   <url>
     <loc>https://pixelcraftstudio-2cd.pages.dev/en/game-tools.html</loc>

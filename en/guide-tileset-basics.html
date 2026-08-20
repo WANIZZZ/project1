@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2656200620663831"
+       crossorigin="anonymous"></script>
+  <title>Tileset Design and Autotiling Basics | PixelCraft Studio</title>
+  <meta name="description" content="How to draw seamless tiles, and why a 47-tile autotile blob set solves the corner-piece problem in 2D map design." />
+  <meta name="keywords" content="tileset, autotiling, tilemap, autotile, pixel art background, game development guide" />
+  <link rel="canonical" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html" />
+  <link rel="alternate" hreflang="ko" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+  <link rel="alternate" hreflang="en" href="https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pixelcraftstudio-2cd.pages.dev/guide-tileset-basics.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="PixelCraft Studio" />
+  <meta property="og:title" content="Tileset Design and Autotiling Basics" />
+  <meta property="og:description" content="Drawing seamless tiles and why a 47-tile autotile set solves the corner-piece problem." />
+  <meta property="og:url" content="https://pixelcraftstudio-2cd.pages.dev/en/guide-tileset-basics.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tileset Design and Autotiling Basics",
+    "description": "Drawing seamless tiles and why a 47-tile autotile set solves the corner-piece problem.",
+    "inLanguage": "en",
+    "publisher": { "@type": "Organization", "name": "PixelCraft Studio" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-intro">
+      <h1>Tileset Design and Autotiling Basics</h1>
+      <p>Guide &middot; <a href="guides.html">Back to guides</a></p>
+    </section>
+
+    <article class="doc-card">
+      <p>
+        Most platformer and top-down maps are built by repeating small tiles across the screen.
+        That's a different kind of work from drawing a single character - a tile doesn't need to
+        look good on its own so much as it needs to <strong>look natural next to its
+        neighbors</strong>. This guide covers the fundamentals of drawing a tileset, and how
+        autotiling automates the tedious part of handling terrain boundaries.
+      </p>
+
+      <h2>Match your tile size to your character size</h2>
+      <p>
+        It makes the most sense to lock in a tile size first, then draw your character as a
+        multiple of it. Common sizes like 16x16 or 32x32 also make it easier to mix in
+        <a href="guide-free-assets.html">free assets from outside sources</a>. The relationship
+        between tile size and character size is covered in more depth in
+        <a href="guide-sprite-size.html">How to Choose Your Pixel Art Sprite Size</a>.
+      </p>
+
+      <h2>Drawing without visible seams</h2>
+      <p>
+        Repeat the same tile across a row or column and any obvious edge gives away that it's a
+        tile - that "tiled" look. To avoid it, any pattern that touches a tile's edge (grass
+        texture, stone texture, and so on) needs to line up cleanly between the left and right
+        edges, and between the top and bottom edges. The most reliable way to check is to use a
+        wrap-around preview in your art tool, or simply duplicate the finished tile in all four
+        directions and look for any seam that stands out.
+      </p>
+
+      <h2>Why one tile is never enough</h2>
+      <p>
+        A patch of solid grass can be filled with a single grass tile, but the border where grass
+        meets dirt is a different problem. A tile with grass on top and dirt below, one with dirt
+        only in the top-left corner, one with dirt only in the top-right - each
+        <strong>combination of border directions needs its own tile</strong>. Draw and place all
+        of those by hand and the workload grows exponentially with every new terrain type you add.
+      </p>
+
+      <h2>What autotiling actually solves</h2>
+      <p>
+        Autotiling checks whether each of a tile's 8 surrounding neighbors is the same terrain
+        type or a different one, and automatically picks the right border tile for that
+        combination. Most engines use a standard layout called a
+        <strong>47-tile blob set</strong>. Out of every possible combination across the 4
+        cardinal and 4 diagonal neighbor directions, only 47 are actually visually distinct -
+        draw those 47 once, and the engine assembles everything else on its own. Godot's TileSet
+        autotile feature and the Tiled map editor's Wang tiles both work on this same principle.
+      </p>
+
+      <h2>Starting smaller: a 9-tile set</h2>
+      <p>
+        Drawing all 47 tiles up front can feel like a lot. If you're just starting out, a
+        <strong>3x3 reduced set</strong> - a center tile, four edge tiles, and four corner tiles,
+        nine total - is often enough to produce reasonably natural-looking terrain. You can add
+        the remaining combinations one at a time later, once you actually need the extra detail.
+      </p>
+
+      <h2>Practical checklist</h2>
+      <ul class="steps">
+        <li><strong>1. Lock the tile size first</strong>decide its relationship to your
+          character size before drawing anything.</li>
+        <li><strong>2. Test by tiling it</strong>duplicate the finished tile repeatedly and
+          check for any seam that stands out.</li>
+        <li><strong>3. Start with a 9-tile set</strong>center plus 4 edges plus 4 corners,
+          then expand to 47 tiles if you need it.</li>
+        <li><strong>4. Use your engine's autotile tools</strong>lean on Godot's TileSet or
+          Tiled's Wang tiles to handle the combinations automatically.</li>
+      </ul>
+
+      <p>
+        Need character or object icons to go with your tiles? The
+        <a href="pixel-gallery.html">Pixel Image Picks</a> page has original icons you can
+        download with no licensing concerns.
+      </p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/pixel-art.js"></script>
+  <script src="../js/background-characters.js"></script>
+  <script src="../js/common.js"></script>
+</body>
+</html>
